@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace OrderSystem;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
