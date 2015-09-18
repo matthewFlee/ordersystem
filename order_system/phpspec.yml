@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: OrderSystem
+        psr4_prefix: OrderSystem
         src_path: app

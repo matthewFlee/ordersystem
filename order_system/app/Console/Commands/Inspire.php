@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace OrderSystem\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
