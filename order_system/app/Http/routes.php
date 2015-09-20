@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//Login page route
+//Temporary until controller is created, testing layout styles
+Route::get('/login', function () {
+    return view('login');
+});
