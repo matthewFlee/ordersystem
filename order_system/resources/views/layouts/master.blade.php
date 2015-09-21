@@ -25,21 +25,27 @@
                 <a href="#" class="brand-logo">Order System</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/">Home</a></li>
+                    <li><a href="/">Customers</a></li>
+                    <li><a href="/">Menu</a></li>
+                    <li><a href="/">Admin</a></li>
                 </ul>
                 </div>
             </nav>
         <!-- Main content -->
         
             <div class='row'>
-                <div class="col s8">
-                    <h1></h1>
+                <div class="col s9">
                     @section('main')
-                    This is where the main content will go
+                        This is where the main content will go
                     @show
                 </div>
+                <div class="col s3">
+                    @section('sidebar')
+                        sidebar stuff
+                    @show
                 </div>
-                <div class="col s4">
             </div>
+            
         </div>
         @section('action-buttons')
         <!-- Fixed Action Button -->
@@ -57,4 +63,10 @@
         <!-- End fixed Action Button -->
         @show
     </body>
+    <script>
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+</script>
 </html>
