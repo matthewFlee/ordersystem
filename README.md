@@ -19,3 +19,4 @@ you will also need to run `composer install` in the laravel root
 * [Laravel Requirements](http://laravel.com/docs/master)
 * [Branching and merging](https://youtu.be/uR-9NGrpU-c)
 * [Pull requests and branching](https://www.youtube.com/watch?v=oFYyTZwMyAg)
+* [My Social Network using Laravel 4.3.x](https://github.com/pyle/laravel-social-network)
