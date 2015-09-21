@@ -27,7 +27,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/">Customers</a></li>
                     <li><a href="/">Menu</a></li>
-                    <li><a href="/">Admin</a></li>
+                    <li><a href="{{secure_url('admin')}}">Admin</a></li>
                 </ul>
                 </div>
             </nav>
