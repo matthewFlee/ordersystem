@@ -67,6 +67,7 @@
             <div class="card blue-grey z-depth-2">
             <div class="card-content white-text">
                 <span class="card-title">John Doe</span>
+                <div class="">Time: 6:45p - 21/9</div>
                 <div class="">Status: Ready for delivery</div>
                 <div class="">Type: Delivery</div>
             </div>
