@@ -1,16 +1,15 @@
-
 @extends('layouts.master')
 
 @section('main')
 <h1>Start Here</h1>
 <div>
     <p>
-    <a class="waves-effect waves-light btn-large tooltipped modal-trigger" data-position="right" 
+    <a class="waves-effect waves-light btn-large tooltipped modal-trigger" data-position="right"
     data-delay="50" data-tooltip="Take an order for a customer" href="#neworder">
         <i class="material-icons left">description</i>New Order</a>
     </p>
     <p>
-    <a class="waves-effect waves-light btn-large tooltipped modal-trigger" data-position="right" 
+    <a class="waves-effect waves-light btn-large tooltipped modal-trigger" data-position="right"
     data-delay="50" data-tooltip="View the customer database" href="#customers">
         <i class="material-icons left">perm_identity</i>Customers</a>
     </p>
@@ -31,7 +30,7 @@
             <i class="material-icons right">send</i>
         </button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-      
+
     </div>
   </div>
     <!-- New Order splash/modal -->
@@ -43,14 +42,14 @@
               <input placeholder="John Smith or C1238" id="searchQuery" type="text" class="validate">
               <label for="searchQuery">Customer Details</label>
             </div>
-      
+
     </div>
     <div class="modal-footer">
         <button class="btn waves-effect waves-light" type="submit" name="search" action="submit">Search
             <i class="material-icons right">send</i>
         </button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-      
+
     </div>
     </form>
   </div>

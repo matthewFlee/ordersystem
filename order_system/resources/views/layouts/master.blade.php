@@ -6,7 +6,7 @@
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-        <!-- Icons --> 
+        <!-- Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified JavaScript + Jquery-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -14,7 +14,7 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- End materialize -->
-        
+
         <title>@yield('title') - Order System</title>
     </head>
     <body>
@@ -27,12 +27,12 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/">Customers</a></li>
                     <li><a href="/">Menu</a></li>
-                    <li><a href="{{secure_url('admin')}}">Admin</a></li>
+                    <li><a href="./admin">Admin</a></li>
                 </ul>
                 </div>
             </nav>
         <!-- Main content -->
-        
+
             <div class='row'>
                 <div class="col s9">
                     @section('main')
@@ -45,7 +45,7 @@
                     @show
                 </div>
             </div>
-            
+
         </div>
         @section('action-buttons')
         <!-- Fixed Action Button -->
