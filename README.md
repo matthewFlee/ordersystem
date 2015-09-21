@@ -13,3 +13,9 @@ features/function points will be added to the tracker so that commits can be lin
 After cloning this repo to your workspace of choice there is setup the basic tools.
 this will setup and install composer along with setting some environment variables.
 you will also need to run `composer install` in the laravel root
+
+#Resources
+* [Laravel 5.1 Docs](http://laravel.com/docs/5.1/)
+* [Laravel Requirements](http://laravel.com/docs/master)
+* [Branching and merging](https://youtu.be/uR-9NGrpU-c)
+* [Pull requests and branching](https://www.youtube.com/watch?v=oFYyTZwMyAg)
