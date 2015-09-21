@@ -10,8 +10,10 @@ features/function points will be added to the tracker so that commits can be lin
 **Live version with master can be found here:** http://ec2-52-64-19-177.ap-southeast-2.compute.amazonaws.com/
 
 #WORKSPACE SETUP
-After cloning this repo to your workspace of choice there is setup the basic tools.
+After cloning this repo to your workspace of choice there is a script I've made which will setup the basic tools.
 this will setup and install composer along with setting some environment variables.
+You will need to `chmod +x workspace_init.sh`
+Then `./workspace_init.sh`
 you will also need to run `composer install` in the laravel root
 
 #Resources
