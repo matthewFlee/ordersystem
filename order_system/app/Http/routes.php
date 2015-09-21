@@ -24,4 +24,4 @@ Route::get('/login', function () {
 
 
 //Admin panel Route
-Route::resource('Admin', 'AdminController');
+Route::resource('admin', 'AdminController');
