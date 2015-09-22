@@ -11,7 +11,7 @@
         </ul>
     </div>
 
-    <!-- System Statistics -->
+    <!-- System Statistics tab-->
     <div id="stats" class="col s12">
       <!--card stats start-->
       <div id="system-stats">
@@ -52,7 +52,6 @@
               </div>
               <div class="card-action purple darken-2">
                 <div id="sales-compositebar"></div>
-
               </div>
             </div>
           </div>
@@ -74,11 +73,12 @@
       </div>
       <!--card stats end-->
     </div>
+    <!-- Customer Management tab-->
     <div id="custmgnt" class="col s12">
         Have list of customers with pagenation. Possibly Load on tab hit(save bandwidth)
     </div>
 
-    <!-- Menu Editor-->
+    <!-- Menu Editor tab-->
     <div id="menuedit" class="col s12">
         <table class="stripped">
             <thead>
@@ -112,6 +112,7 @@
           </ul>
         </div>
     </div>
+    <!-- Employee Management tab-->
     <div id="employeemgnt" class="col s12">
         List users. Have actions like reset password. Add new users etc
     </div>
