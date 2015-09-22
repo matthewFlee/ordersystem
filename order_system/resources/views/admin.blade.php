@@ -18,8 +18,8 @@
     </div>
     <div id="menuedit" class="col s12">
         <p>List all menu items. Tabular form</p>
-        
-        <table class="stripped responsive-table">
+
+        <table class="stripped">
             <thead>
                 <tr>
                     <th data-field="id">Item ID</th>
@@ -39,9 +39,21 @@
                 @endfor
             </tbody>
         </table>
+        <div class="center-align">
+          <ul class="pagination">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+          </ul>
+        </div>
     </div>
     <div id="employeemgnt" class="col s12">
         List users. Have actions like reset password. Add new users etc
     </div>
   </div>
+
 @endsection
