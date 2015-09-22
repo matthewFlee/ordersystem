@@ -6,7 +6,7 @@
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-        <!-- Icons --> 
+        <!-- Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified JavaScript + Jquery-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -14,10 +14,10 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- End materialize -->
-        
+
         <!-- Custom css-->
         <!--<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">-->
-        
+
         <title>@yield('title') - Order System</title>
     </head>
     <body>
@@ -36,4 +36,9 @@
         @show
         </div>
     </body>
+    <script>
+    $(document).ready(function(){
+      $('.scrollspy').scrollSpy();
+    });
+    </script>
 </html>
