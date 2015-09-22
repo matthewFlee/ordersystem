@@ -7,7 +7,7 @@ It will be developed on the Laravel platform
 The project will use the bug/feature tracker implemented into bitbucket. All
 features/function points will be added to the tracker so that commits can be linked.
 
-**Live version with master can be found here:** http://ec2-52-64-19-177.ap-southeast-2.compute.amazonaws.com/
+**Live version with master can be found here:** http://ec2-52-64-19-177.ap-southeast-2.compute.amazonaws.com/ OR http://order.getset.tech/
 
 #WORKSPACE SETUP
 After cloning this repo to your workspace of choice there is a script I've made which will setup the basic tools.
