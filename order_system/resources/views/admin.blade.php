@@ -10,7 +10,6 @@
             <li class="tab col s3"><a href="#employeemgnt">Employee Manager</a></li>
         </ul>
     </div>
-
     <!-- System Statistics tab-->
     <div id="stats" class="col s12">
       <!--card stats start-->
@@ -21,7 +20,8 @@
               <div class="card-content  green white-text">
                 <p class="card-stats-title"><i class="mdi-social-group-add"></i> Orders Today</p>
                 <h4 class="card-stats-number">566</h4>
-                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 15% <span class="green-text text-lighten-5">from yesterday</span>
+                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 15%
+                  <span class="green-text text-lighten-5">from yesterday</span>
                 </p>
               </div>
               <div class="card-action  green darken-2">
@@ -34,7 +34,8 @@
               <div class="card-content blue-grey white-text">
                 <p class="card-stats-title"><i class="mdi-action-trending-up"></i> Today's Sales</p>
                 <h4 class="card-stats-number">$806.52</h4>
-                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 80% <span class="blue-grey-text text-lighten-5">from yesterday</span>
+                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 80%
+                  <span class="blue-grey-text text-lighten-5">from yesterday</span>
                 </p>
               </div>
               <div class="card-action blue-grey darken-2">
@@ -47,7 +48,8 @@
               <div class="card-content purple white-text">
                 <p class="card-stats-title"><i class="mdi-editor-attach-money"></i>Monthly Sales</p>
                 <h4 class="card-stats-number">$8990.63</h4>
-                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 70% <span class="purple-text text-lighten-5">last month</span>
+                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 70%
+                  <span class="purple-text text-lighten-5">last month</span>
                 </p>
               </div>
               <div class="card-action purple darken-2">
@@ -60,7 +62,8 @@
               <div class="card-content pink lighten-2 white-text">
                 <p class="card-stats-title"><i class="mdi-editor-insert-drive-file"></i> Customers</p>
                 <h4 class="card-stats-number">1806</h4>
-                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-down"></i> 3% <span class="deep-purple-text text-lighten-5">from last month</span>
+                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-down"></i> 3%
+                  <span class="deep-purple-text text-lighten-5">from last month</span>
                 </p>
               </div>
               <div class="card-action  pink darken-2">
