@@ -58,5 +58,7 @@
 @endsection
 
 @section('sidebar')
+
 @parent
+
 @endsection
