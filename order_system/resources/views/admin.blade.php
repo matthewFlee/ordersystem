@@ -19,7 +19,7 @@
             <div class="card">
               <div class="card-content  green white-text">
                 <p class="card-stats-title"><i class="mdi-social-group-add"></i> Orders Today</p>
-                <h4 class="card-stats-number">566</h4>
+                <h4 class="card-stats-number">566 </h4>
                 <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i> 15%
                   <span class="green-text text-lighten-5">from yesterday</span>
                 </p>

@@ -39,9 +39,9 @@
                         This is where the main content will go
                     @show
                 </div>
-                <div class="col s3">
+                <div class="col s3 hide-on-med-and-down">
                     @section('sidebar')
-                    <h1>Orders</h1>
+                    <h1 class="center-align">Orders</h1>
                     <div style="height: 500px; overflow:auto;">
                         @for ($i = 0; $i < 5; $i++)
                         <div class="row">

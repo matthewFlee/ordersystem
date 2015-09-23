@@ -3,22 +3,41 @@
 Home
 @endsection
 @section('main')
-<h1>Start Here</h1>
-<div>
-    <p>
-    <a class="waves-effect waves-light btn-large tooltipped modal-trigger" data-position="right"
-    data-delay="50" data-tooltip="Take an order for a customer" href="#neworder">
-        <i class="material-icons left">description</i>New Order</a>
-    </p>
-    <p>
-    <a class="waves-effect waves-light btn-large tooltipped modal-trigger" data-position="right"
-    data-delay="50" data-tooltip="View the customer database" href="#customers">
-        <i class="material-icons left">perm_identity</i>Customers</a>
-    </p>
-    <p>
-    <a class="waves-effect waves-light btn-large tooltipped" data-position="right" data-delay="50" data-tooltip="View the current menu">
-        <i class="material-icons left">list</i>Food Menu</a>
-    </p>
+<h1 class="center-align">Start Here</h1>
+<div id="main-menu">
+  <div class="row">
+    <!-- Card 1 -->
+    <div class="col s12 m6 l4">
+      <a href="order/create">
+      <div class="card">
+        <div class="card-content  green white-text">
+          <h4 class="center-align">Start Order</h4>
+        </div>
+      </div>
+      </a>
+    </div>
+    <!-- Card 2-->
+    <div class="col s12 m6 l4">
+      <a href="customers">
+      <div class="card">
+        <div class="card-content  blue white-text">
+          <h4 class="center-align">Customers</h4>
+        </div>
+      </div>
+      </a>
+    </div>
+    <!-- Card 3 -->
+    <div class="col s12 m6 l4">
+      <a href="menu">
+      <div class="card">
+        <div class="card-content  orange white-text">
+          <h4 class="center-align">Menu</h4>
+        </div>
+      </div>
+      </a>
+    </div>
+    <!-- End Cards -->
+  </div>
 </div>
 
 <!-- New Order splash/modal -->
