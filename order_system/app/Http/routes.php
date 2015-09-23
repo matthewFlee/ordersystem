@@ -25,3 +25,4 @@ Route::get('/login', function () {
 
 //Admin panel Route
 Route::resource('admin', 'AdminController');
+Route::resource('menu', 'MenuController');
