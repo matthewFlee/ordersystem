@@ -1,0 +1,3 @@
+#SQLITE DATABASE
+#USE MIGRATIONS AND SEEDS IF YOU WANT DATA
+./order_system/storage/database.sqlite
