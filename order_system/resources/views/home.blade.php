@@ -1,5 +1,7 @@
 @extends('layouts.master')
-
+@section('title')
+Home
+@endsection
 @section('main')
 <h1>Start Here</h1>
 <div>
