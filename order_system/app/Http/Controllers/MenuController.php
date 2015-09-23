@@ -89,5 +89,8 @@ class MenuController extends Controller
     public function destroy($id)
     {
         //Remove a menu item
+        $item = OrderSystem\Menu::find($id);
+        $post->delete();
+        //Redirect or somethign similar
     }
 }
