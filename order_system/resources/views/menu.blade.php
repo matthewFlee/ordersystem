@@ -1,10 +1,8 @@
 @extends('layouts.master')
-
+@section('title')
+Menu
+@endsection
 @section('main')
-<p>
-  {{ $items}}
-</p>
-
 <div id="menuedit" class="col s12">
     <table class="stripped">
         <thead>
