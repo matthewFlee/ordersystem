@@ -8,7 +8,7 @@ Home
   <div class="row">
     <!-- Card 1 -->
     <div class="col s12 m6 l4">
-      <a href="order/create">
+      <a href="#neworder"  class="modal-trigger">
       <div class="card">
         <div class="card-content  green white-text">
           <h4 class="center-align">Start Order</h4>
@@ -44,12 +44,32 @@ Home
   <div id="neworder" class="modal">
     <div class="modal-content">
       <h4>Create a new order</h4>
-      <p>Are you sure you want to create a new order?</p>
+      <p><h5>What sort of order do you want to create?</h5></p>
+      <div class="row">
+        <!-- Card 1 -->
+        <div class="col s12 m6 l6">
+          <a href="order/create"  class="modal-trigger">
+          <div class="card">
+            <div class="card-content  light-green white-text">
+              <h4 class="center-align">Takeaway</h4>
+            </div>
+          </div>
+          </a>
+        </div>
+        <!-- Card 2-->
+        <div class="col s12 m6 l6">
+          <a href="order/create">
+          <div class="card">
+            <div class="card-content  light-blue white-text">
+              <h4 class="center-align">Delivery</h4>
+            </div>
+          </div>
+          </a>
+        </div>
+        <!-- End Cards -->
+      </div>
     </div>
     <div class="modal-footer">
-        <button class="btn waves-effect waves-light" type="submit" name="search" action="submit">Start Order
-            <i class="material-icons right">send</i>
-        </button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
 
     </div>
