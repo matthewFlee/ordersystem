@@ -76,7 +76,6 @@
       </div>
       <!--card stats end-->
     </div>
-    <!-- Customer Management tab-->
     <div id="custmgnt" class="col s12">
       <div class="row">
         <div class="col s12 m9 l10">
@@ -95,20 +94,24 @@
 
           <div id="alpha-a" class="section scrollspy">
             <ul class="collection">
-              <li class="collection-item avatar">
+              <!-- item start -->
+              @foreach ($customers as $customer)
+              <li id='alpha-{{strtolower($customer->name[0])}}'class="collection-item avatar">
                 <img src="" alt="" class="circle">
-                <span class="title">Ashton</span>
+                <span class="title">{{ $customer->name }}</span>
                 <p>
-                  38 Joyful Rd, Somewhere, 4128
+                  {{ $customer->address}}
                 </p>
                 <p>
-                  0405 210 444
+                  {{ $customer->phoneMob}}
                 </p>
                 <p>
-                  <a href="#">View customer</a>
+                  <a href="{{ url('customers', [$customer->id])}}">View customer</a>
                 </p>
                 <a href="#!" class="secondary-content"><i class="material-icons">reorder</i>17</a>
               </li>
+              @endforeach
+              <!-- End item -->
             </ul>
           </div>
           <div id="alpha-b" class="section scrollspy">
@@ -154,24 +157,23 @@
 
     <!-- Menu Editor tab-->
     <div id="menuedit" class="col s12">
-        <table class="stripped">
+        <table class="bordered">
             <thead>
                 <tr>
                     <th data-field="id">Item ID</th>
                     <th data-field="name">Name</th>
                     <th data-field="cost">Cost</th>
-                    <th data-field="sellPrice">Sell Price</th>
                 </tr>
             </thead>
             <tbody>
-                @for ($i = 0; $i < 10; $i ++)
+                @foreach($items as $item)
                 <tr>
-                    <td>{{ $i+1 }}</td>
-                    <td>Spaghetti</td>
-                    <td>$5.50</td>
-                    <td>$14.50</td>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->item}}</td>
+                    <td>${{$item->price}}</td>
+                    <td><a href="#">Edit</a></td>
                 </tr>
-                @endfor
+                @endforeach
             </tbody>
         </table>
         <div class="center-align">
