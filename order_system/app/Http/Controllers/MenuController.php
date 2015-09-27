@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
-use OrderSystem\Menu;
+use OrderSystem\MenuItem;
 
 class MenuController extends Controller
 {
@@ -19,7 +19,7 @@ class MenuController extends Controller
     {
         //Returns index of menu, for general viewing
         //$menu = Menu::all();
-        return view('menu', ['items' => Menu::all()]);
+        return view('menu', ['items' => MenuItem::all()]);
     }
 
     /**
@@ -91,7 +91,7 @@ class MenuController extends Controller
     public function destroy($id)
     {
         //Remove a menu item
-        $item = Menu::find($id);
+        $item = MenuItem::find($id);
         $post->delete();
         //Redirect or somethign similar
     }

@@ -4,7 +4,7 @@ namespace OrderSystem;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class MenuItem extends Model
 {
     //
 }
