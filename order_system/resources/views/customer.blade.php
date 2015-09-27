@@ -26,7 +26,7 @@ Customers
         <ul class="collection">
           <!-- item start -->
           @foreach ($customers as $customer)
-          <li class="collection-item avatar">
+          <li id='alpha-{{strtolower($customer->name[0])}}'class="collection-item avatar">
             <img src="" alt="" class="circle">
             <span class="title">{{ $customer->name }}</span>
             <p>
