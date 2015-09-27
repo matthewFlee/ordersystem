@@ -4,7 +4,7 @@ Menu
 @endsection
 @section('main')
 <div id="menuedit" class="col s12">
-    <table class="stripped">
+    <table class="bordered">
         <thead>
             <tr>
                 <th data-field="id">Item ID</th>
