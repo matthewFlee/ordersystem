@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
-use OrderSystem\Customer;
-use OrderSystem\Menu;
 
 class AdminController extends Controller
 {
@@ -18,10 +16,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-      return view('admin', [
-        'customers' => Customer::select('id','name','phoneMob','address')->orderBy('name')->get(),
-        'items' => Menu::all()
-        ]);
+        return view('admin');
     }
 
     /**
