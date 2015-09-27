@@ -12,7 +12,7 @@ class CreateMenuTable extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function(Blueprint $table){
+        Schema::create('menu_items', function(Blueprint $table){
           $table->increments('id')->unique();
           $table->string('item');
           //price is name, 7 is numebr of digits, 2 is numebr after decimal
@@ -30,6 +30,6 @@ class CreateMenuTable extends Migration
      */
     public function down()
     {
-        Schema::drop('menu');
+        Schema::drop('menu_items');
     }
 }
