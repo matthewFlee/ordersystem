@@ -17,10 +17,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-
-        return view('customer');
+      return view('customer', ['customers' => Customer::select('id','name','phoneMob','address')->orderBy('name')->get()]);
     }
-
+    //Customer::select(array('id','name','Address', 'phoneMob')
     /**
      * Show the form for creating a new resource.
      *

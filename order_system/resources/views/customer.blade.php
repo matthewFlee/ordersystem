@@ -25,20 +25,22 @@ Customers
       <div id="alpha-a" class="section scrollspy">
         <ul class="collection">
           <!-- item start -->
+          @foreach ($customers as $customer)
           <li class="collection-item avatar">
             <img src="" alt="" class="circle">
-            <span class="title">John Doe</span>
+            <span class="title">{{ $customer->name }}</span>
             <p>
-              56 James Street, Brisbane, 4000
+              {{ $customer->address}}
             </p>
             <p>
-              0405 210 444
+              {{ $customer->phoneMob}}
             </p>
             <p>
-              <a href="{{ url('customers', [1])}}">View customer</a>
+              <a href="{{ url('customers', [$customer->id])}}">View customer</a>
             </p>
             <a href="#!" class="secondary-content"><i class="material-icons">reorder</i>17</a>
           </li>
+          @endforeach
           <!-- End item -->
         </ul>
       </div>
