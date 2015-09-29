@@ -8,7 +8,7 @@ Home
   <div class="row">
     <!-- Card 1 -->
     <div class="col s12 m6 l4">
-      <a href="#neworder"  class="modal-trigger">
+      <a href="#customers"  class="modal-trigger">
       <div class="card">
         <div class="card-content  green white-text">
           <h4 class="center-align">Start Order</h4>
@@ -76,12 +76,14 @@ Home
   </div>
     <!-- New Order splash/modal -->
   <div id="customers" class="modal">
+    {!! Form::open()!!}
     <div class="modal-content">
         <h4>Search for a customer</h4>
-        <form class="col s12">
+        <div class="col s12">
+
             <div class="input-field col s12">
-              <input placeholder="John Smith or C1238" id="searchQuery" type="text" class="validate">
-              <label for="searchQuery">Customer Details</label>
+              <input placeholder="0469 875 356" id="searchQuery" type="text" class="validate">
+              <label for="searchQuery">Customer Phone Number</label>
             </div>
 
     </div>
@@ -92,7 +94,8 @@ Home
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
 
     </div>
-    </form>
+  </div>
+    {!! Form::close() !!}
   </div>
 
 

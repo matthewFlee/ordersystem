@@ -22,6 +22,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
+//temp route for order page creation
+Route::get('/order/create', function () {
+    return view('order');
+});
 
 //Admin panel Route
 Route::resource('admin', 'AdminController');
