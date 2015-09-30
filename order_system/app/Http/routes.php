@@ -14,8 +14,9 @@
 Route::get('/', function () {
     return view('home');
 });
-
-
+//Ajax customer search routes
+Route::post('customer/search', array('as' => 'customer.search', 'uses' =>
+'CustomerController@search'));
 //Login page route
 //Temporary until controller is created, testing layout styles
 Route::get('/login', function () {

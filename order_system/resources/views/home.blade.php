@@ -80,12 +80,15 @@ Home
     <div class="modal-content">
         <h4>Search for a customer</h4>
         <div class="col s12">
-
             <div class="input-field col s12">
               <input placeholder="0469 875 356" id="searchQuery" type="text" class="validate">
               <label for="searchQuery">Customer Phone Number</label>
             </div>
+            <div class="col s12">
+              <ul id="searchCustomerList">
 
+              </ul>
+            </div>
     </div>
     <div class="modal-footer">
         <button class="btn waves-effect waves-light" type="submit" name="search" action="submit">Search
