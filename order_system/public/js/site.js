@@ -14,7 +14,6 @@ var searchList = $("\
 <li>Hello</li>\
 ");
 $('#searchQuery').keyup(function(){
-  var token = document.getElementById('token').value;
   var q = $(this).val();
   //remove whitespace in query
   q = q.replace(/\s/g,'');
@@ -27,18 +26,6 @@ $('#searchQuery').keyup(function(){
   $.post(url, data, function(res){
     console.log(res);
   });
-  /*$.ajax({
-    type: "Post",
-    url: "/customer/search",
-    headers: {'X-CSRF-TOKEN': token},
-    data: data,
-    dataType: "json",
-    //beforeSend: function(data){console.log(data)},
-    success: function(res){
-      //$("#searchCustomerList").append(searchList);
-      console.log(res);
-    }
-  });*/
 });
 
 
