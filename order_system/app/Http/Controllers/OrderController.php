@@ -1,14 +1,14 @@
 <?php
 
 namespace OrderSystem\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
-use OrderSystem\Customer;
-use Validator, Input, Redirect, Session, DB; 
-class CustomerController extends Controller
+use OrderSystem\Order;
+use Validator, Input, Redirect, Session; 
+
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-      return view('customer', ['customers' => Customer::select('id','name','phoneMob','address')->orderBy('name')->get()]);
+        return view('order');
     }
-    //Customer::select(array('id','name','Address', 'phoneMob')
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,8 +38,35 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        
+        $rules = array(
+            'id' => 'required',
+            'type' => 'required',
+            'order_items' => 'required',
+            'status' => 'required',
+            'total_price' => 'required'
+            );
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails()){
+        
+        Session::flash('message', 'Error! Ensure all fields are completed');
+        return Redirect::to('orders'); 
+        } else {
+        $order = new Order;
+        $order->id = Input::get('cust_id');
+        $order->type = Input::get('type');
+        $order->order_items = Input::get('order_items');
+        $order->status = Input::get('status');
+        $order->total_price = Input::get('total_price');
+       
+        $order->save();
+        
+        Session::flash('message', 'Order Created!');
+        return Redirect::to('orders');
+        }
+            
+        }
+
 
     /**
      * Display the specified resource.
@@ -49,20 +76,7 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-       
-        $customer = DB::table('customers')->where('phoneMob', $id)->first();
- 
-        
-        if(empty($customer)) {
-        
-        Session::flash('message', 'Customer Not Found');
-        return Redirect::to('orders'); 
-            
-        } else {
-         
-        Session::flash('message', 'Customer Found');
-        return view('order',compact('customer'));
-        }
+        //
     }
 
     /**

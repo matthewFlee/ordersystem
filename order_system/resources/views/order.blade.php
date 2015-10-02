@@ -3,15 +3,29 @@
 @section('main')
 <h1>Create an Order</h1>
 
-{!! Form::open() !!}
+@if(Session::has('message'))
+    <div class="card-panel orange">
+       <h3><i class="large material-icons">error</i>{{ Session::get('message') }}</h3>
+    </div>
+@endif
+
+{!! Form::open(array('action' => array('CustomerController@show'), 'method' => 'get')) !!}
 <div class="row">
   <div class="input-field">
-    <div class="col s12">
+    <div class="col s8">
       {!! Form::text('customer', "#search_query")!!}
       {!! Form::label('Customer') !!}
     </div>
+
+   <div class="col s4">
+     
+      {!! Form::button('<i class="material-icons left">search</i> Search',array('class' => 'waves-effect green btn' , 'name' => 'action', 'type' => 'submit'))!!}
+      {!! Form::close() !!}
+   </div>
+   
   </div>
 </div>
+{!! Form::open(array('action' => 'OrderController@store')) !!}
 <!-- choose the order type -->
 <div class="row">
   <div class="input-field">
@@ -40,7 +54,7 @@
           <td>$ 60.97</td>
         </tr>
       </tfoot>
-      <tbody>
+      <tbody> 
         <tr>
           {{-- Will have logic to add these --}}
           <td>Spaghetti</td>

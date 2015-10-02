@@ -31,3 +31,4 @@ Route::get('/order/create', function () {
 Route::resource('admin', 'AdminController');
 Route::resource('menu', 'MenuController');
 Route::resource('customers', 'CustomerController');
+Route::resource('orders', 'OrderController');
