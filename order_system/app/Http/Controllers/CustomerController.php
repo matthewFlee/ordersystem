@@ -47,23 +47,29 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show($cust)
     {
-       
-        $customer = DB::table('customers')->where('phoneMob', $id)->first();
- 
         
-        if(empty($customer)) {
-        
-        Session::flash('message', 'Customer Not Found');
-        return Redirect::to('orders'); 
-            
-        } else {
-         
-        Session::flash('message', 'Customer Found');
-        return view('order',compact('customer'));
-        }
     }
+    
+    /**
+	 * Search for customers from phone Number
+	 * @return Customer
+	 */
+	public function search()
+	{
+		$query = Input::get('phone');
+		$cust = Customer::whereRaw('phoneMob = ?', array($query))->get();
+		
+	    if (!$cust->isEmpty()) {
+	    
+	    	return view('order', compact('cust'));
+	   
+	    } else {
+	        Session::flash('message', 'Customer not Found');
+	    	return Redirect::to('orders');
+	    }
+	}
 
     /**
      * Show the form for editing the specified resource.

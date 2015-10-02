@@ -9,17 +9,17 @@
     </div>
 @endif
 
-{!! Form::open(array('action' => array('CustomerController@show'), 'method' => 'get')) !!}
+{!! Form::open(array('action' => 'CustomerController@search')) !!}
 <div class="row">
   <div class="input-field">
     <div class="col s8">
-      {!! Form::text('customer', "#search_query")!!}
-      {!! Form::label('Customer') !!}
+      {!! Form::text('phone', "#search_query")!!}
+      {!! Form::label('phone', 'Search customers') !!}
     </div>
 
    <div class="col s4">
-     
-      {!! Form::button('<i class="material-icons left">search</i> Search',array('class' => 'waves-effect green btn' , 'name' => 'action', 'type' => 'submit'))!!}
+      {!! Form::submit('Search') !!}
+    
       {!! Form::close() !!}
    </div>
    

@@ -46,26 +46,31 @@ class OrderController extends Controller
             'status' => 'required',
             'total_price' => 'required'
             );
+          
         $validator = Validator::make(Input::all(), $rules);
+        
         if ($validator->fails()){
-        
-        Session::flash('message', 'Error! Ensure all fields are completed');
-        return Redirect::to('orders'); 
+            
+            Session::flash('message', 'Error! Ensure all fields are completed');
+            return Redirect::to('orders');
+            
         } else {
-        $order = new Order;
-        $order->id = Input::get('cust_id');
-        $order->type = Input::get('type');
-        $order->order_items = Input::get('order_items');
-        $order->status = Input::get('status');
-        $order->total_price = Input::get('total_price');
+            
+            $order = new Order;
+            $order->id = Input::get('cust_id');
+            $order->type = Input::get('type');
+            //pass array with route of order items, serialise from that array ****************************************
+            $order->order_items = serialize(Input::get('order_items'));
+            $order->status = Input::get('status');
+            $order->total_price = Input::get('total_price');
        
-        $order->save();
+            $order->save();
         
-        Session::flash('message', 'Order Created!');
-        return Redirect::to('orders');
-        }
+            Session::flash('message', 'Order Created!');
+            return Redirect::to('orders');
             
         }
+    }
 
 
     /**

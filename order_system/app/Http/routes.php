@@ -32,3 +32,7 @@ Route::resource('admin', 'AdminController');
 Route::resource('menu', 'MenuController');
 Route::resource('customers', 'CustomerController');
 Route::resource('orders', 'OrderController');
+//Route::resource('')
+
+
+Route::post('customer/search', array('as' => 'customer.search', 'uses' =>'CustomerController@search'));
