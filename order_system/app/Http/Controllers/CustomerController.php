@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
 use OrderSystem\Customer;
+use OrderSystem\MenuItem;
+
 use Validator, Input, Redirect, Session, DB; 
 class CustomerController extends Controller
 {
@@ -60,10 +62,10 @@ class CustomerController extends Controller
 	{
 		$query = Input::get('phone');
 		$cust = Customer::whereRaw('phoneMob = ?', array($query))->get();
-		
+		$items = MenuItem::all();
 	    if (!$cust->isEmpty()) {
 	    
-	    	return view('order', compact('cust'));
+	    	return view('order', compact('cust'))->withItems($items);
 	   
 	    } else {
 	        Session::flash('message', 'Customer not Found');

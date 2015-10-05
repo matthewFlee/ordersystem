@@ -29,6 +29,16 @@ class OrderController extends Controller
     {
         //
     }
+    
+    public function add_item(){
+        $item = Input::get('item_id');
+        $qty = Input::get('qty');
+        $ordered_items = array(array());     //Input::get('items_array'); 
+        array_push($ordered_items, array($item,$qty));
+        return view('order')->withOrder_items($ordered_items);
+    }
+    
+    
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +46,7 @@ class OrderController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $order_items)
     {
         
         $rules = array(
@@ -81,11 +91,13 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::find($id);
+        $order_items = unserialize($order->order_items);
+        return Redirect::to(URL::previous())->withOrder($order)->withItems($order_items);
+        
     }
 
     /**
-     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return Response
@@ -115,6 +127,9 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::find($id);
+		$order->delete();
+		Session::flash('message', 'Order Deleted!');
+		return Redirect::to(URL::previous());
     }
 }
