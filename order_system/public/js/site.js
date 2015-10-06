@@ -49,6 +49,7 @@ $('.additem').click(function(){
   drawOrderRow({"id": $id, "item": $item, "quantity": $quantity, "price": $price});
 });
 
+
 //draws the order table !!not in use currently
 function drawTable(data) {
   for (var i = 0; i < data.length; i++) {
@@ -64,6 +65,13 @@ function drawOrderRow(rowData) {
   row.append($("<td>" + rowData.item + "</td>"));
   row.append($("<td> <input placeholder='Quantity' id='item' type='text' class='validate' value='" + rowData.quantity +"'></td>"));
   row.append($("<td>" + rowData.price + "</td>"));
+  row.append($("<td><a href='#' class='deleteItem'> <i class='material-icons'>delete</i></a></td>"));
 };
+
+//Delete menu item from list
+$('.deleteItem').click(function(){
+  alert('Are you sure you want to remove this item?');
+  console.log('Are you sure you want to remove this item?');
+});
 
 });

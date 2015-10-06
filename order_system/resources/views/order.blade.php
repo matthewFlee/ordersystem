@@ -71,16 +71,6 @@
         </tr>
       </tfoot>
       <tbody id="orderContent">
-      <tr>
-          <td>
-          </td>
-          <td>
-            <div class="input-field col s6">
-              <input placeholder="Quantity" id="item" type="text" class="validate">
-            </div>
-          </td>
-          <td>Item cost</td>
-        </tr>
       </tbody>
     </table>
     <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" href="#show-menu"><i class="material-icons">add</i></a>
@@ -125,7 +115,7 @@
       </table>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
     </div>
 
   </div>
