@@ -108,7 +108,7 @@
                   <td class="itemid">{{ $item->id }}</td>
                   <td class="menuitem">{{ $item->item}}</td>
                   <td class="itemprice">${{$item->price}}</td>
-                  <td class="additem"><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a></td>
+                  <td class=""><a class="btn-floating btn-small waves-effect waves-light red additem"><i class="material-icons">add</i></a></td>
               </tr>
               @endforeach
           </tbody>
