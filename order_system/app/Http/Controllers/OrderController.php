@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
 use OrderSystem\Order;
-use Validator, Input, Redirect, Session; 
+use OrderSystem\MenuItem;
+use Validator, Input, Redirect, Session;
 
 class OrderController extends Controller
 {
@@ -17,7 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('order');
+      return view('order', ['items' => MenuItem::all()]);
     }
 
     /**
@@ -29,16 +30,16 @@ class OrderController extends Controller
     {
         //
     }
-    
+
     public function add_item(){
         $item = Input::get('item_id');
         $qty = Input::get('qty');
-        $ordered_items = array(array());     //Input::get('items_array'); 
+        $ordered_items = array(array());     //Input::get('items_array');
         array_push($ordered_items, array($item,$qty));
         return view('order')->withOrder_items($ordered_items);
     }
-    
-    
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -48,7 +49,7 @@ class OrderController extends Controller
      */
     public function store(Request $request, $order_items)
     {
-        
+
         $rules = array(
             'id' => 'required',
             'type' => 'required',
@@ -56,16 +57,16 @@ class OrderController extends Controller
             'status' => 'required',
             'total_price' => 'required'
             );
-          
+
         $validator = Validator::make(Input::all(), $rules);
-        
+
         if ($validator->fails()){
-            
+
             Session::flash('message', 'Error! Ensure all fields are completed');
             return Redirect::to('orders');
-            
+
         } else {
-            
+
             $order = new Order;
             $order->id = Input::get('cust_id');
             $order->type = Input::get('type');
@@ -73,12 +74,12 @@ class OrderController extends Controller
             $order->order_items = serialize(Input::get('order_items'));
             $order->status = Input::get('status');
             $order->total_price = Input::get('total_price');
-       
+
             $order->save();
-        
+
             Session::flash('message', 'Order Created!');
             return Redirect::to('orders');
-            
+
         }
     }
 
@@ -94,7 +95,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order_items = unserialize($order->order_items);
         return Redirect::to(URL::previous())->withOrder($order)->withItems($order_items);
-        
+
     }
 
     /**

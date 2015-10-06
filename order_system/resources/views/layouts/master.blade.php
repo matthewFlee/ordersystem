@@ -15,7 +15,7 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- End materialize -->
-
+        <script text="text/javascript"src="{{asset('js/site.js')}}"></script>
         <title>@yield('title') - Order System</title>
     </head>
     <body>
@@ -83,11 +83,4 @@
         <!-- End fixed Action Button -->
         @show
     </body>
-    <script>
-    $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-    $('select').material_select();
-  });
-</script>
 </html>
