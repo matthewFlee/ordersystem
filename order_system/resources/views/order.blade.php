@@ -65,17 +65,14 @@
       </thead>
       <tfoot>
         <tr>
-          <td>
-
-          </td>
+          <td></td>
           <td>Total Cost: </td>
           <td>var total price</td>
         </tr>
       </tfoot>
-      <tbody>
+      <tbody id="orderContent">
       <tr>
           <td>
-
           </td>
           <td>
             <div class="input-field col s6">
@@ -105,7 +102,6 @@
 
 <!-- Menu modal -->
 <!-- Modal Structure -->
-<!-- Modal Structure -->
   <div id="show-menu" class="modal modal-fixed-footer">
     <div class="modal-content">
       <table id="menutable"class="bordered">
@@ -119,17 +115,17 @@
           <tbody>
               @foreach($items as $item)
               <tr>
-                  <td>{{ $item->id }}</td>
-                  <td>{{ $item->item}}</td>
-                  <td>${{$item->price}}</td>
-                  <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a></td>
+                  <td class="itemid">{{ $item->id }}</td>
+                  <td class="menuitem">{{ $item->item}}</td>
+                  <td class="itemprice">${{$item->price}}</td>
+                  <td class="additem"><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a></td>
               </tr>
               @endforeach
           </tbody>
       </table>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
     </div>
 
   </div>
