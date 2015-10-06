@@ -16,11 +16,11 @@
 
       @if( isset($cust))
         <div class="chip">
-          
+
           @foreach($cust as $c)
             {{ $c->name }}
           @endforeach
-          
+
         </div>
       @else
         {!! Form::text('phone', "#search_query")!!}
@@ -33,7 +33,7 @@
        {!! Form::button('<span class=""><i class="small material-icons">search</i></span> Search',array('class' => 'btn waves-effect waves-light', 'name' => 'action', 'type' => 'submit'))!!}
       {!! Form::close() !!}
    </div>
-   
+
   </div>
 </div>
 
@@ -42,13 +42,13 @@
 {!! Form::open(array('action' => 'OrderController@store')) !!}
 
 
-  
+
 <!-- choose the order type -->
 <div class="row">
   <div class="input-field">
   <div class="col s6">
     {!! Form::select('orderType', array('delivery' => 'Delivery', 'take-away' => 'Take-away'), null, array('class' => '')) !!}
-    
+
     {!! Form::label('Order Type')!!}
   </div>
 </div>
@@ -69,38 +69,20 @@
 
           </td>
           <td>Total Cost: </td>
-          <td>$ 60.97</td>
+          <td>var total price</td>
         </tr>
       </tfoot>
-      <tbody> 
-      
-        
-      
-      
-      
+      <tbody>
       <tr>
-           
           <td>
-            <div class="input-field col s6">
-            <input placeholder="Item" id="item" type="text" class="validate">
-            </div>
+
           </td>
-          
-          <td>            
+          <td>
             <div class="input-field col s6">
               <input placeholder="Quantity" id="item" type="text" class="validate">
             </div>
-            <a class="waves-effect waves-light btn">+</a>
           </td>
-          <td>$60.97</td>
-        </tr>
-      
-      
-        <tr>
-          {{-- Will have logic to add these --}}
-          <td>Spaghetti</td>
-          <td>1</td>
-          <td>$60.97</td>
+          <td>Item cost</td>
         </tr>
       </tbody>
     </table>
@@ -126,29 +108,28 @@
 <!-- Modal Structure -->
   <div id="show-menu" class="modal modal-fixed-footer">
     <div class="modal-content">
-   
- 
-    {!! Form::open(array('action' => 'OrderController@add_item')) !!}        
-    {!! Form::label('item_id', 'Enter Item Number:') !!}
-    {!! Form::text('item_id') !!}
-    
-    {!! Form::label('qty', 'Enter Quantity:') !!}
-    {!! Form::text('qty') !!}
-    
-    {!! Form::button('<span class=""><i class="material-icons">add</i></span> Add',array('class' => 'btn waves-effect waves-light', 'name' => 'action', 'type' => 'submit'))!!}
-  
-    
-    {!! Form::close() !!} 
-    
-    
-    
-  
-    
-    
+      <table id="menutable"class="bordered">
+          <thead>
+              <tr>
+                  <th data-field="id">Item ID</th>
+                  <th data-field="name">Name</th>
+                  <th data-field="cost">Cost</th>
+              </tr>
+          </thead>
+          <tbody>
+              @foreach($items as $item)
+              <tr>
+                  <td>{{ $item->id }}</td>
+                  <td>{{ $item->item}}</td>
+                  <td>${{$item->price}}</td>
+                  <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a></td>
+              </tr>
+              @endforeach
+          </tbody>
+      </table>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
     </div>
-  
+
   </div>
-  
