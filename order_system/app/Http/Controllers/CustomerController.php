@@ -73,6 +73,19 @@ class CustomerController extends Controller
 	    }
 	}
 
+    //search takes post requests
+    //At this point only returns json for ajax requests
+/**    public function search(Request $request){
+        $query = $request->input('query');
+        $query = str_replace(' ', '', $query);
+        $results = Customer::select('id','name','phoneMob')
+        ->where('phoneMob','LIKE', "%$query%")
+        ->orderBy('name')->get();
+        return $results->toJson();
+      //return $query;
+    }
+ }
+**/
     /**
      * Show the form for editing the specified resource.
      *
