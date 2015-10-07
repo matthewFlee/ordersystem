@@ -56,8 +56,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
 
-      $input = $request->all();
-      $validator = Validator::make($input, $this->rules);
+      $validator = Validator::make($request->all(), $this->rules);
       if ($validator->passes()){
         $customer = new Customer;
         $customer->name = htmlspecialchars($request->input('name'));
@@ -134,6 +133,7 @@ class CustomerController extends Controller
       'cardMonth' => $cardExpiry->format('m'),
       'cardYear' => $cardExpiry->format('Y'),
       'type' => 'edit']);
+
     }
 
     /**
@@ -145,8 +145,22 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $validator = Validator::make($request->all(), $this->rules);
+      if ($validator->passes()){
+        $customer = Customer::find($id);
+        $customer->name = htmlspecialchars($request->input('name'));
+        $customer->phoneMob = htmlspecialchars($request->input('phoneMob'));
+        $customer->address = htmlspecialchars($request->input('address'));
+        $customer->cardNo = htmlspecialchars($request->input('cardNo'));
+        $customer->cardExpiry = htmlspecialchars($request->input('year') + "-" + $request->input('month'));
+        $customer->cardHolder = htmlspecialchars($request->input('cardHolder'));
+        $customer->cardCcv = htmlspecialchars($request->input('cardCcv'));
+        $customer->save();
 
-        return view('customer');
+        return Redirect::to('customers');
+      } else {
+        return Redirect::action('CustomerController@edit')->withErrors($validator);
+      }
     }
 
     /**

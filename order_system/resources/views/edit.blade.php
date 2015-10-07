@@ -6,12 +6,15 @@
   <div class="card-panel blue lighten-2">
     <h4 class="center-align">{{ $customer->name or 'New Customer'}}</h4>
   </div>
+  <!-- use this form if editing customer -->
   @if ($type == 'edit')
-  {!! Form::open(array('action' => 'CustomerController@update')) !!}
+  <!-- {!! Form::open(array('action' => 'CustomerController@update')) !!} -->
+  {!! Form::model($customer, array('method' => 'PUT', 'route' => array('customers.update', $customer->id))) !!}
+  <!-- use this form if creating a new customer -->
   @elseif ($type == 'create')
-  {!! Form::open(array('action' => 'CustomerController@store')) !!}
+  {!! Form::open(array('method' => 'POST','action' => 'CustomerController@store')) !!}
   @endif
-  <!-- Errors -->
+  <!-- Errors if any-->
   @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
     <script>Materialize.toast('{{ $error }}', 4000)</script>
