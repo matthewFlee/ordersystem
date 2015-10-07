@@ -8,8 +8,10 @@ use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
 use OrderSystem\Customer;
 use OrderSystem\MenuItem;
+use \DateTime;
 
-use Validator, Input, Redirect, Session, DB; 
+
+use Validator, Input, Redirect, Session, DB;
 class CustomerController extends Controller
 {
     /**
@@ -17,6 +19,17 @@ class CustomerController extends Controller
      *
      * @return Response
      */
+
+     // Class variables
+
+     //Customer edit and create validationrules
+     private $rules = array(
+       'cardNo' => 'required|numeric|size:16',
+       'cardExpiry' => 'required',
+       'cardHolder' => 'required',
+       'cardCcv' => 'required|size:3'
+     );
+
     public function index()
     {
       return view('customer', ['customers' => Customer::select('id','name','phoneMob','address')->orderBy('name')->get()]);
@@ -40,7 +53,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -51,9 +64,9 @@ class CustomerController extends Controller
      */
     public function show($cust)
     {
-        
+
     }
-    
+
     /**
 	 * Search for customers from phone Number
 	 * @return Customer
@@ -64,9 +77,9 @@ class CustomerController extends Controller
 		$cust = Customer::whereRaw('phoneMob = ?', array($query))->get();
 		$items = MenuItem::all();
 	    if (!$cust->isEmpty()) {
-	    
+
 	    	return view('order', compact('cust'))->withItems($items);
-	   
+
 	    } else {
 	        Session::flash('message', 'Customer not Found');
 	    	return Redirect::to('orders');
@@ -94,7 +107,13 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+      $customer = Customer::find($id);
+      //extract card expiry and turn into DateTime object
+      //This is used in the returning of the view to get the single variables
+      $cardExpiry = new DateTime($customer->cardExpiry);
+      return view('edit', ['customer' => $customer,
+      'cardMonth' => $cardExpiry->format('m'),
+      'cardYear' => $cardExpiry->format('Y')]);
     }
 
     /**
@@ -106,7 +125,8 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        return view('customer');
     }
 
     /**

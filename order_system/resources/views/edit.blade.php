@@ -4,10 +4,10 @@
 @section('main')
 <div class="container ">
   <div class="card-panel blue lighten-2">
-    <h4 class="center-align">CUSTOMER NAME</h4>
+    <h4 class="center-align">{{ $customer->name or 'New Customer'}}</h4>
   </div>
   @if (true)
-  {!! Form::open(array('action' => 'CustomerController@update')) !!}
+  {!! Form::open(array('action' => 'CustomerController@update', 'method' =>'POST')) !!}
   @endif
   <!-- Start general details-->
   <p>Contact Information</p>
@@ -16,47 +16,39 @@
     <!-- Customer name-->
     <div class="input-field col s6">
       <i class="material-icons prefix">account_circle</i>
-      <input id="name" type="text" class="validate">
+      <input id="name" type="text" class="validate" value="{{ $customer->name or ''}}">
       <label for="name">First Name</label>
     </div>
     <!-- Customer Mobile Phone-->
     <div class="input-field col s6">
       <i class="material-icons prefix">phone</i>
-      <input id="phoneMob" type="text" class="validate">
+      <input id="phoneMob" type="text" class="validate" value="{{$customer->phoneMob or ''}}">
       <label for="phoneMob">Mobile Phone</label>
     </div>
   </div>
   <div class="row">
     <!-- Customer Address-->
-    <div class="input-field col s6">
-      <input id="addrStreet" type="text" class="validate">
+    <div class="input-field col s12">
+      <input id="address" type="text" class="validate" value="{{$customer->address}}">
       <label for="addrStreet">Number &amp; Street</label>
-    </div>
-    <div class="input-field col s3">
-      <input id="addrSuburb" type="text" class="validate">
-      <label for="addrSuburb">Suburb</label>
-    </div>
-    <div class="input-field col s3">
-      <input id="addrPostcode" type="text" class="validate">
-      <label for="addrPostcode">Postcode</label>
     </div>
   </div>
   <p>Credit Card Details</p>
   <hr />
   <div class="row">
     <div class="input-field col s6">
-      <input id="cardHolder" type="text" class="validate">
+      <input id="cardHolder" type="text" class="validate" value="{{$customer->cardHolder or ''}}">
       <label for="cardHolder">Card Holder's Name</label>
     </div>
     <div class="input-field col s6">
-      <input id="cardNo" type="text" class="validate">
+      <input id="cardNo" type="text" class="validate" value="{{$customer->cardNo or ''}}">
       <label for="cardNo">Card Number</label>
     </div>
   </div>
   <div class="row">
     <!-- Card Month -->
     <div class="input-field col s4">
-      <select>
+      <select id="monthPicker">
         <option value="01">January</option>
         <option value="02">February</option>
         <option value="03">March</option>
@@ -72,9 +64,17 @@
       </select>
       <label>Expiry Month</label>
     </div>
+    <!-- Code to select Month in picker take php var and puts in js -->
+    <script type="text/javascript">
+    <?php
+      $month = $cardMonth;
+      echo "var month = '{$month}';";
+    ?>
+    $("select option[value='"+ month +"']").attr("selected", "selected");
+    </script>
     <!-- Card Year -->
     <div class="input-field col s4">
-      <select>
+      <select id="yearPicker">
         <option value="2015">2015</option>
         <option value="2016">2016</option>
         <option value="2017">2017</option>
@@ -84,9 +84,17 @@
       </select>
       <label>Expiry Year</label>
     </div>
+    <!-- Code to select Year in picker take php var and puts in js -->
+    <script type="text/javascript">
+    <?php
+      $year = $cardYear;
+      echo "var month = '{$year}';";
+    ?>
+    $("select option[value='"+ month +"']").attr("selected", "selected");
+    </script>
     <div class="input-field col s4">
-      <input id="cardNo" type="text" class="validate">
-      <label for="cardNo">CCV</label>
+      <input id="cardCcv" type="text" class="validate" value="{{$customer->cardCcv or ''}}">
+      <label for="cardCcv">CCV</label>
     </div>
   </div>
   <!-- End general details-->
