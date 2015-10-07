@@ -17,6 +17,7 @@
 
         <!-- Custom css-->
         <!--<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">-->
+        <script text="text/javascript"src="{{asset('js/site.js')}}"></script>
 
         <title>@yield('title') - Order System</title>
     </head>
@@ -28,7 +29,7 @@
                 <a href="#" class="brand-logo">Order System</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                   <li><a href="/">Home</a></li>
-                  <li><a href="customers">Customers</a></li>
+                  <li><a href="/customers">Customers</a></li>
                   <li><a href="/">Menu</a></li>
                   <li><a href="./admin">Admin</a></li>
                 </ul>

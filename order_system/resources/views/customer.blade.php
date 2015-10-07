@@ -38,7 +38,7 @@ Customers
             <p>
               <a href="{{ url('customers', [$customer->id])}}">View customer</a>
             </p>
-            <a href="#!" class="secondary-content"><i class="material-icons">reorder</i>17</a>
+            <a href="/customers/{{$customer->id}}/edit" class="secondary-content"><i class="material-icons">mode edit</i></a>
           </li>
           @endforeach
           <!-- End item -->

@@ -12,7 +12,7 @@ $('.modal-trigger').leanModal();
 $('select').material_select();
 
 $('.scrollspy').scrollSpy();
-//Start materializecss functions
+//Stop materializecss functions
 
 /*Currently not in use
 var searchList = $("\
