@@ -80,9 +80,10 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($cust)
+    public function show($id)
     {
-
+      $customer = Customer::find($id);
+      return view('viewcustomer', ['customer' => $customer]);
     }
 
     /**

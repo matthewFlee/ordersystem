@@ -1,5 +1,5 @@
 @extends('layouts.blank')
-@section('title', 'Edit Customer')
+@section('title', 'Customer')
 
 @section('main')
 <div class="container ">
