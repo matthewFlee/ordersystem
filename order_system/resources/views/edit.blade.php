@@ -6,8 +6,16 @@
   <div class="card-panel blue lighten-2">
     <h4 class="center-align">{{ $customer->name or 'New Customer'}}</h4>
   </div>
-  @if (true)
-  {!! Form::open(array('action' => 'CustomerController@update', 'method' =>'POST')) !!}
+  @if ($type == 'edit')
+  {!! Form::open(array('action' => 'CustomerController@update')) !!}
+  @elseif ($type == 'create')
+  {!! Form::open(array('action' => 'CustomerController@store')) !!}
+  @endif
+  <!-- Errors -->
+  @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+    <script>Materialize.toast('{{ $error }}', 4000)</script>
+    @endforeach
   @endif
   <!-- Start general details-->
   <p>Contact Information</p>
@@ -16,39 +24,40 @@
     <!-- Customer name-->
     <div class="input-field col s6">
       <i class="material-icons prefix">account_circle</i>
-      <input id="name" type="text" class="validate" value="{{ $customer->name or ''}}">
-      <label for="name">First Name</label>
+      <!-- {!! Form::text('name', $customer->name, array())!!} -->
+      <input id="name" name="name" type="text" class="validate" value="{{ $customer->name or ''}}">
+      <label for="name">Name</label>
     </div>
     <!-- Customer Mobile Phone-->
     <div class="input-field col s6">
       <i class="material-icons prefix">phone</i>
-      <input id="phoneMob" type="text" class="validate" value="{{$customer->phoneMob or ''}}">
+      <input name="phoneMob" id="phoneMob" type="text" class="validate" value="{{$customer->phoneMob or ''}}">
       <label for="phoneMob">Mobile Phone</label>
     </div>
   </div>
   <div class="row">
     <!-- Customer Address-->
     <div class="input-field col s12">
-      <input id="address" type="text" class="validate" value="{{$customer->address}}">
-      <label for="addrStreet">Number &amp; Street</label>
+      <input name="address" id="address" type="text" class="validate" value="{{$customer->address or ''}}">
+      <label for="address">Number &amp; Street</label>
     </div>
   </div>
   <p>Credit Card Details</p>
   <hr />
   <div class="row">
     <div class="input-field col s6">
-      <input id="cardHolder" type="text" class="validate" value="{{$customer->cardHolder or ''}}">
+      <input name="cardHolder" id="cardHolder" type="text" class="validate" value="{{$customer->cardHolder or ''}}">
       <label for="cardHolder">Card Holder's Name</label>
     </div>
     <div class="input-field col s6">
-      <input id="cardNo" type="text" class="validate" value="{{$customer->cardNo or ''}}">
+      <input name="cardNo" id="cardNo" type="text" class="validate" value="{{$customer->cardNo or ''}}">
       <label for="cardNo">Card Number</label>
     </div>
   </div>
   <div class="row">
     <!-- Card Month -->
     <div class="input-field col s4">
-      <select id="monthPicker">
+      <select id="monthPicker" name="month">
         <option value="01">January</option>
         <option value="02">February</option>
         <option value="03">March</option>
@@ -67,14 +76,17 @@
     <!-- Code to select Month in picker take php var and puts in js -->
     <script type="text/javascript">
     <?php
-      $month = $cardMonth;
-      echo "var month = '{$month}';";
+      if (isset($cardMonth)){
+        $month = $cardMonth;
+        echo "var month = '{$month}';";
+      }
+
     ?>
     $("select option[value='"+ month +"']").attr("selected", "selected");
     </script>
     <!-- Card Year -->
     <div class="input-field col s4">
-      <select id="yearPicker">
+      <select id="yearPicker" name="year">
         <option value="2015">2015</option>
         <option value="2016">2016</option>
         <option value="2017">2017</option>
@@ -87,13 +99,15 @@
     <!-- Code to select Year in picker take php var and puts in js -->
     <script type="text/javascript">
     <?php
-      $year = $cardYear;
-      echo "var month = '{$year}';";
+      if (isset($cardYear)){
+        $year = $cardYear;
+        echo "var month = '{$year}';";
+      }
     ?>
     $("select option[value='"+ month +"']").attr("selected", "selected");
     </script>
     <div class="input-field col s4">
-      <input id="cardCcv" type="text" class="validate" value="{{$customer->cardCcv or ''}}">
+      <input name="cardCcv" id="cardCcv" type="text" class="validate" value="{{$customer->cardCcv or ''}}">
       <label for="cardCcv">CCV</label>
     </div>
   </div>

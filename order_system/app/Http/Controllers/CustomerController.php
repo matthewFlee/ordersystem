@@ -24,10 +24,12 @@ class CustomerController extends Controller
 
      //Customer edit and create validationrules
      private $rules = array(
-       'cardNo' => 'required|numeric|size:16',
-       'cardExpiry' => 'required',
+       'cardNo' => 'required',
        'cardHolder' => 'required',
-       'cardCcv' => 'required|size:3'
+       'cardCcv' => 'required',
+       'name' => 'required|min:3',
+       'phoneMob' => 'required',
+       'address' => 'required'
      );
 
     public function index()
@@ -42,7 +44,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view ('edit')->withType('create')->withCustomer( new Customer);
     }
 
     /**
@@ -54,6 +56,23 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
 
+      $input = $request->all();
+      $validator = Validator::make($input, $this->rules);
+      if ($validator->passes()){
+        $customer = new Customer;
+        $customer->name = htmlspecialchars($request->input('name'));
+        $customer->phoneMob = htmlspecialchars($request->input('phoneMob'));
+        $customer->address = htmlspecialchars($request->input('address'));
+        $customer->cardNo = htmlspecialchars($request->input('cardNo'));
+        $customer->cardExpiry = htmlspecialchars($request->input('year') + "-" + $request->input('month'));
+        $customer->cardHolder = htmlspecialchars($request->input('cardHolder'));
+        $customer->cardCcv = htmlspecialchars($request->input('cardCcv'));
+        $customer->save();
+
+        return Redirect::to('customers');
+      } else {
+        return Redirect::action('CustomerController@create')->withErrors($validator);
+      }
     }
 
     /**
@@ -113,7 +132,8 @@ class CustomerController extends Controller
       $cardExpiry = new DateTime($customer->cardExpiry);
       return view('edit', ['customer' => $customer,
       'cardMonth' => $cardExpiry->format('m'),
-      'cardYear' => $cardExpiry->format('Y')]);
+      'cardYear' => $cardExpiry->format('Y'),
+      'type' => 'edit']);
     }
 
     /**
