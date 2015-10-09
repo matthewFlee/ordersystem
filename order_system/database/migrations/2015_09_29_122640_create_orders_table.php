@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_items');
             $table->string('status');
             // $table->double('total_price');
-            $table->timestamp('created_at');
+            //$table->timestamp('created_at');
         });
     }
 

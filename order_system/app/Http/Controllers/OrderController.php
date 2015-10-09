@@ -7,6 +7,7 @@ use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
 use OrderSystem\Order;
 use OrderSystem\MenuItem;
+use Illuminate\Database\Query\Builder;
 use Validator, Input, Redirect, Session;
 
 class OrderController extends Controller
@@ -47,13 +48,12 @@ class OrderController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request, $order_items)
+    public function store(Request $request)
     {
 
         $rules = array(
-            'id' => 'required',
-            'type' => 'required',
-            'order_items' => 'required',
+            'cust_id' => 'required',
+            'orderType' => 'required',
             'status' => 'required',
             'total_price' => 'required'
             );
@@ -63,18 +63,19 @@ class OrderController extends Controller
         if ($validator->fails()){
 
             Session::flash('message', 'Error! Ensure all fields are completed');
-            return Redirect::to('orders');
+            return Redirect::to('orders')->withErrors($validator);
 
         } else {
 
             $order = new Order;
-            $order->id = Input::get('cust_id');
-            $order->type = Input::get('type');
+            $order->c_id = Input::get('cust_id');
+            $order->type = Input::get('orderType');
             //pass array with route of order items, serialise from that array ****************************************
-            $order->order_items = serialize(Input::get('order_items'));
+            $order->order_items = "test"; //serialize(order);
             $order->status = Input::get('status');
-            $order->total_price = Input::get('total_price');
-
+           // $order->total_price = Input::get('total_price');
+          
+        
             $order->save();
 
             Session::flash('message', 'Order Created!');

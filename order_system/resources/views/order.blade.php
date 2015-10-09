@@ -6,10 +6,12 @@
 @if(Session::has('message'))
     <div class="card-panel orange">
        <h3><i class="large material-icons">error</i>{{ Session::get('message') }}</h3>
+      
+   
     </div>
 @endif
 
-{!! Form::open(array('action' => 'CustomerController@search')) !!}
+{!! Form::open(array('action' => 'CustomerController@search', 'name'=>'action')) !!}
 <div class="row">
   <div class="input-field">
     <div class="col s8">
@@ -41,6 +43,8 @@
 
 {!! Form::open(array('action' => 'OrderController@store')) !!}
 
+{!! Form::hidden('cust_id', '100') !!}
+{!! Form::hidden('status', 'complete') !!}
 
 
 <!-- choose the order type -->
@@ -68,6 +72,7 @@
           <td></td>
           <td>Total Cost: </td>
           <td>var total price</td>
+          {!! Form::hidden('total_price', '100') !!}
         </tr>
       </tfoot>
       <tbody id="orderContent">

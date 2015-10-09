@@ -147,5 +147,21 @@ $('#current-order').on("click", ".plusItem", function(){
   var $id = parseInt($(this).closest('tr').find(".itemid").html());
   addQuantity($id);
   drawTable(orderdata);
+
 });
+
+    var frm = $('#action');
+    frm.submit(function (ev) {
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: { details: frm.serialize(), order:  /global orderdata / },
+            success: function (data) {
+                alert('ok');
+            }
+        });
+
+        ev.preventDefault();
+    });
+    
 });
