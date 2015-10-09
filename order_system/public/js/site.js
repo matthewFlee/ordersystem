@@ -150,18 +150,59 @@ $('#current-order').on("click", ".plusItem", function(){
 
 });
 
-    var frm = $('#action');
-    frm.submit(function (ev) {
-        $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: { details: frm.serialize(), order:  /global orderdata / },
-            success: function (data) {
-                alert('ok');
-            }
-        });
 
-        ev.preventDefault();
+
+$( '#o_createForm' ).on('submit', function(event) {
+    var form = $(this);
+    var url = form.attr("action");
+    var formData = {};
+    $(form).find("input[name]").each(function (index, node) {
+        formData[node.name] = node.value;
     });
     
+    
+    $.post(url, formData).done(function (formdata) {
+        alert('success' + formdata);
+    }).fail(function(formdata){
+      alert('fail' + formdata);
+    });
+  
+  event.preventDefault();
+  
+  
+  
+  
+  /*
+  var form = $(this);
+  var items = orderdata.serialize;
+  var c_id = $(this).attr('cust_id');
+  var o_type = $(this).attr('orderType');
+  var status = $(this).attr('status');
+
+  
+  
+  
+        $.ajax({
+            type: 'POST',
+            url: form.attr('action'),
+            data: {c_id : c_id, o_type : o_type, status : status, items : items}
+        }).done(function (data) {
+          
+            alert('succes');
+            // on success
+           
+        }).fail(function (data) {
+          alert('fail');
+            // on error
+
+        });
+        event.preventDefault();
+  
+*/
+return false;
+
+ 
+});
+
+
 });

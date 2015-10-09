@@ -38,3 +38,6 @@ Route::resource('orders', 'OrderController');
 Route::post('customer/search', array('as' => 'customer.search', 'uses' =>'CustomerController@search'));
 
 Route::post('order/add_item', array('as' => 'order.add_item', 'uses' =>'OrderController@add_item'));
+
+Route::post('order/store', array('as' => 'order.store', 'uses' =>'OrderController@store'));
+

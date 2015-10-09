@@ -51,36 +51,27 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
-        $rules = array(
-            'cust_id' => 'required',
-            'orderType' => 'required',
-            'status' => 'required',
-            'total_price' => 'required'
-            );
+ 
 
-        $validator = Validator::make(Input::all(), $rules);
-
-        if ($validator->fails()){
-
-            Session::flash('message', 'Error! Ensure all fields are completed');
-            return Redirect::to('orders')->withErrors($validator);
-
-        } else {
-
-            $order = new Order;
-            $order->c_id = Input::get('cust_id');
-            $order->type = Input::get('orderType');
-            //pass array with route of order items, serialise from that array ****************************************
-            $order->order_items = "test"; //serialize(order);
-            $order->status = Input::get('status');
-           // $order->total_price = Input::get('total_price');
+        if (isset($_POST)) {
+            
+           // $o_items = $request->input('items');
+            
+            
+                $order = new Order;
+                $order->c_id = $request->input('cust_id');
+                $order->type = 'test';//$request->input('orderType');
+                //pass array with route of order items, serialise from that array ****************************************
+                $order->order_items = 'test' ;//$items;
+                $order->status = $request->input('status');
           
-        
-            $order->save();
+                $order->save();
 
-            Session::flash('message', 'Order Created!');
-            return Redirect::to('orders');
-
+                Session::flash('message', 'Order Created' );
+                return Redirect::to('orders'); //->withOitems($o_items);
+        } else {
+            Session::flash('message', 'Error!');
+                return Redirect::to('orders');
         }
     }
 

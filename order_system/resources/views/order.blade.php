@@ -6,8 +6,14 @@
 @if(Session::has('message'))
     <div class="card-panel orange">
        <h3><i class="large material-icons">error</i>{{ Session::get('message') }}</h3>
-      
-   
+   @if(isset($oitems))
+    @foreach ($oitems as $it)
+    <h6>{{ $it->id }}</h6>
+    @endforeach
+    
+    @else
+    <h3>NOT SET</h3>
+    @endif
     </div>
 @endif
 
@@ -41,17 +47,19 @@
 
 @if(isset($cust))
 
-{!! Form::open(array('action' => 'OrderController@store')) !!}
+{!! Form::open(array('action' => 'OrderController@store', 'name' => 'action', 'id' =>'o_createForm')) !!}
 
-{!! Form::hidden('cust_id', '100') !!}
-{!! Form::hidden('status', 'complete') !!}
+ 
+      {!! Form::hidden('cust_id', '100' ) !!} 
+
+      {!! Form::hidden('status', 'complete') !!}
 
 
 <!-- choose the order type -->
 <div class="row">
   <div class="input-field">
   <div class="col s6">
-    {!! Form::select('orderType', array('delivery' => 'Delivery', 'take-away' => 'Take-away'), null, array('class' => '')) !!}
+    {!! Form::select('orderType', array('delivery' => 'Delivery', 'take-away' => 'Take-away'), null) !!}
 
     {!! Form::label('Order Type')!!}
   </div>
@@ -72,7 +80,7 @@
           <td></td>
           <td>Total Cost: </td>
           <td>var total price</td>
-          {!! Form::hidden('total_price', '100') !!}
+         
         </tr>
       </tfoot>
       <tbody id="orderContent">
@@ -89,7 +97,9 @@
   </div>
 </div>
 <div class="row">
-  {!! Form::button('<span class="mdi-content-send right"></span> Submit',array('class' => 'btn waves-effect waves-light', 'name' => 'action', 'type' => 'submit'))!!}
+  
+
+  {!! Form::button('<span class="mdi-content-send right"></span> Submit',array('class' => 'btn waves-effect waves-light', 'onclick' => "$('#o_createForm').submit(); return false;", 'id' => 'formSubmit'))!!}
 </div>
 {!! Form::close() !!}
     @endif

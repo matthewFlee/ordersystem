@@ -1,6 +1,7 @@
 @extends('layouts.components')
 <!DOCTYPE html>
 <html>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <head>
         <!-- Materialize CSS and JS-->
         <!--Import Google Icon Font-->
