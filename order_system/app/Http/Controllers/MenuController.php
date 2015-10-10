@@ -36,7 +36,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-
+      return view ('menucreate');
     }
 
     /**
@@ -47,12 +47,16 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        $item = new Menu();
-        $item->item = $input['item'];
-        $item->price = floatval($input['price']);
-        $item->save();
-
+        $validator = Validator::make($request->all(), $this->rules);
+        if ($validator->passes()){
+          $item = new MenuItem;
+          $item->item = htmlspecialchars($request->input('item'));
+          $item->price = floatval($request->input('price'));
+          $item->save();
+          return Redirect::to('/menu');
+        } else {
+          return Redirect::action('MenuController@create')->withError($validator);
+        }
     }
 
     /**
@@ -75,7 +79,6 @@ class MenuController extends Controller
     public function edit($id)
     {
       $menuitem = MenuItem::find($id);
-      echo ($menuitem);
       return view('menuedit', ['menuitem' => $menuitem]);
     }
 

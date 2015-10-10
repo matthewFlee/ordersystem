@@ -75,7 +75,7 @@
               <i class="large material-icons">add</i>
             </a>
             <ul>
-                <li><a class="btn-floating red"><i class="small material-icons">insert_chart</i></a></li>
+                <li><a class="btn-floating red" href="/menu/create"><i class="small material-icons">insert_chart</i></a></li>
                 <li><a class="btn-floating yellow darken-1" href="/customers/create"><i class="material-icons">perm_identity</i></a></li>
                 <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
                 <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
