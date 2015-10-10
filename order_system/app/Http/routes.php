@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+//All orders route
+Route::get('orders/all', array('as' => 'orders.all', 'uses' => 'OrderController@all'));
 
 //Login page route
 //Temporary until controller is created, testing layout styles
@@ -40,4 +42,3 @@ Route::post('customer/search', array('as' => 'customer.search', 'uses' =>'Custom
 Route::post('order/add_item', array('as' => 'order.add_item', 'uses' =>'OrderController@add_item'));
 
 Route::post('order/store', array('as' => 'order.store', 'uses' =>'OrderController@store'));
-

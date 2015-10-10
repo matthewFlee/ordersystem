@@ -9,7 +9,7 @@ use OrderSystem\Http\Controllers\Controller;
 use OrderSystem\Order;
 use OrderSystem\MenuItem;
 use Illuminate\Database\Query\Builder;
-use Validator, Input, Redirect, Session;
+use Validator, Input, Redirect, Session, DB;
 
 class OrderController extends Controller
 {
@@ -58,12 +58,12 @@ class OrderController extends Controller
                 //pass array with route of order items, serialise from that array ****************************************
                 $order->order_items = $request->input('items');
                 $order->status = $request->input('status');
-          
+
                 $order->save();
 
                Session::flash('message', 'Order Created' );
                 //return Redirect::to('customers'); //->with('message', 'Order Created');
-                return Redirect::to('orders'); 
+                return Redirect::to('orders');
         } else {
             Session::flash('message', 'Error!');
                 return Redirect::to('orders');
@@ -119,5 +119,14 @@ class OrderController extends Controller
 		$order->delete();
 		Session::flash('message', 'Order Deleted!');
 		return Redirect::to(URL::previous());
+    }
+
+    //Route for showing all orders on a page
+    public function all(){
+      // $orders = DB::table('orders')
+      // ->join('customers', 'orders.c_id', '=', 'customers.id')
+      // ->select('orders.*', 'customers.name', 'customers.id')
+      // ->get();
+      return view('ordersall', ['orders' => $orders]);
     }
 }
