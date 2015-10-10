@@ -32,7 +32,13 @@
   {!! Form::button('<span class="mdi-content-send right"></span> Update',
   array('class' => 'btn waves-effect waves-light', 'name' => 'action', 'type' => 'submit'))
   !!}
-
-</div>
 {!! Form::close() !!}
+{!! Form::open(array('method' => 'DELETE', 'route' => array('menu.destroy', $menuitem->id)))!!}
+<button class="red waves-effect waves-light btn" type="submit"
+onclick="return confirm('Are you sure you want to delete this menu item')">
+  <i class="material-icons left">cloud</i>delete
+</button>
+
+{!! Form::close()!!}
+</div>
 @endsection

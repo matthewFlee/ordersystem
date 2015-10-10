@@ -114,7 +114,8 @@ class MenuController extends Controller
     {
         //Remove a menu item
         $item = MenuItem::find($id);
-        $post->delete();
+        $item->delete();
         //Redirect or somethign similar
+        return Redirect::to('/menu');
     }
 }
