@@ -44,8 +44,8 @@
 
 {!! Form::open(array('action' => 'OrderController@store', 'name' => 'action', 'id' =>'o_createForm')) !!}
 
-      {!! Form::hidden('cust_id',  $id ) !!} 
-      {!! Form::hidden('status', 'complete') !!}
+      {!! Form::hidden('cust_id',  $id ) !!}
+      {!! Form::hidden('status', 'new') !!}
 
 <!-- choose the order type -->
 <div class="row">
@@ -87,7 +87,6 @@
   </div>
 </div>
 <div class="row">
-  
   {!! Form::button('<span class="mdi-content-send right"></span> Submit',array('class' => 'btn waves-effect waves-light', 'onclick' => "$('#o_createForm').submit(); return false;", 'id' => 'formSubmit'))!!}
 </div>
 {!! Form::close() !!}
