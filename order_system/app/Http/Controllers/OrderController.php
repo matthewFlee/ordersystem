@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 
 use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
+
 use OrderSystem\Order;
 use OrderSystem\MenuItem;
 use Illuminate\Database\Query\Builder;
@@ -60,7 +61,8 @@ class OrderController extends Controller
           
                 $order->save();
 
-                Session::flash('message', 'Order Created' );
+               Session::flash('message', 'Order Created' );
+                //return Redirect::to('customers'); //->with('message', 'Order Created');
                 return Redirect::to('orders'); 
         } else {
             Session::flash('message', 'Error!');

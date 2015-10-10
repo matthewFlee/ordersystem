@@ -169,6 +169,7 @@ $( '#o_createForm' ).on('submit', function(event) {
     // post to controller
     $.post(url, formData).done(function (formdata) {
         alert('Order Created!' );
+        window.location.href = '../orders';
     }).fail(function(formdata){
       alert('fail' + formdata);
     });
