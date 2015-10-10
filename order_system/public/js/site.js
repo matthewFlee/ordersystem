@@ -154,7 +154,7 @@ $('#current-order').on("click", ".plusItem", function(){
 //Function to post form data from order.blade along with
 //items ordered to order.store controller
 $( '#o_createForm' ).on('submit', function(event) {
-  
+
   //store all form elements in variables
   var a = document.getElementById("o_createForm").elements.namedItem("cust_id").value;
   var b = document.getElementById("o_createForm").elements.namedItem("status").value;
@@ -165,7 +165,7 @@ $( '#o_createForm' ).on('submit', function(event) {
   //set object to post to hold order details
   var formData = {'id':a, 'status':b, 'orderType':c, 'items':JSON.stringify(d) };
   formData.serialize;
-    
+
     // post to controller
     $.post(url, formData).done(function (formdata) {
         alert('Order Created!' );
@@ -173,13 +173,13 @@ $( '#o_createForm' ).on('submit', function(event) {
     }).fail(function(formdata){
       alert('fail' + formdata);
     });
-  
+
   //stop default form behaviour
   event.preventDefault();
-  
+
 return false;
 
- 
+
 });
 
 

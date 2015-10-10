@@ -45,28 +45,27 @@
                     @section('sidebar')
                     <h1 class="center-align">Orders</h1>
                     <div style="height: 500px; overflow:auto;">
-                        @for ($i = 0; $i < 5; $i++)
+                        @foreach ($sOrders as $sOrder)
                         <div class="row">
                             <div class="col s12">
                                 <div class="card blue-grey z-depth-2">
                                 <div class="card-content white-text">
-                                    <span class="card-title">John Doe</span>
-                                    <div class="">Time: 6:45p - 21/9</div>
-                                    <div class="">Status: Ready for delivery</div>
-                                    <div class="">Type: Delivery</div>
+                                    <span class="card-title">{{$sOrder->name}}</span>
+                                    <div class="">Time: {{date('m-d h:i a', strtotime($sOrder->created_at))}}</div>
+                                    <div class="">Status: {{ucfirst($sOrder->status)}}</div>
+                                    <div class="">Type: {{ucfirst($sOrder->type)}}</div>
                                 </div>
                                 <div class="card-action">
-                                  <a href="#">View Order</a>
+                                  <a href="/order/{{$sOrder->id}}">View Order</a>
                                 </div>
                                 </div>
                             </div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div>
                     @show
                 </div>
             </div>
-
         </div>
         @section('action-buttons')
         <!-- Fixed Action Button -->
