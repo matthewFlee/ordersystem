@@ -13,13 +13,13 @@ Menu
             </tr>
         </thead>
         <tbody>
-           
+
             @foreach($items as $item)
             <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->item}}</td>
                 <td>${{$item->price}}</td>
-                <td><a href="#">Edit</a></td>
+                <td><a href="/menu/{{$item->id}}/edit">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
