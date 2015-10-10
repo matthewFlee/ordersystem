@@ -1,6 +1,7 @@
 @extends('layouts.components')
 <!DOCTYPE html>
 <html>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <head>
         <!-- Materialize CSS and JS-->
         <!--Import Google Icon Font-->
@@ -15,7 +16,7 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- End materialize -->
-
+        <script text="text/javascript"src="{{asset('js/site.js')}}"></script>
         <title>@yield('title') - Order System</title>
     </head>
     <body>
@@ -75,7 +76,7 @@
             </a>
             <ul>
                 <li><a class="btn-floating red"><i class="small material-icons">insert_chart</i></a></li>
-                <li><a class="btn-floating yellow darken-1"><i class="material-icons">perm_identity</i></a></li>
+                <li><a class="btn-floating yellow darken-1" href="/customers/create"><i class="material-icons">perm_identity</i></a></li>
                 <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
                 <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
             </ul>
@@ -83,11 +84,4 @@
         <!-- End fixed Action Button -->
         @show
     </body>
-    <script>
-    $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-    $('select').material_select();
-  });
-</script>
 </html>

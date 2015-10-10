@@ -13,6 +13,7 @@ Menu
             </tr>
         </thead>
         <tbody>
+           
             @foreach($items as $item)
             <tr>
                 <td>{{ $item->id }}</td>

@@ -8,7 +8,7 @@ Home
   <div class="row">
     <!-- Card 1 -->
     <div class="col s12 m6 l4">
-      <a href="#customers"  class="modal-trigger">
+      <a href="orders"  >
       <div class="card">
         <div class="card-content  green white-text">
           <h4 class="center-align">Start Order</h4>
