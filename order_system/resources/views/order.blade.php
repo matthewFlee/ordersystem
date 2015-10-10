@@ -1,14 +1,15 @@
 @extends('layouts.master')
 @section('title', 'Order')
 @section('main')
+
 <h1>Create an Order</h1>
 
 @if(Session::has('message'))
     <div class="card-panel orange">
        <h3><i class="large material-icons">error</i>{{ Session::get('message') }}</h3>
-  
     </div>
 @endif
+
 
 {!! Form::open(array('action' => 'CustomerController@search', 'name'=>'action')) !!}
 <div class="row">
@@ -20,6 +21,7 @@
 
           @foreach($cust as $c)
             {{ $c->name }}
+            <?php $id = $c->id; ?>
           @endforeach
 
         </div>
@@ -42,18 +44,14 @@
 
 {!! Form::open(array('action' => 'OrderController@store', 'name' => 'action', 'id' =>'o_createForm')) !!}
 
- 
-      {!! Form::hidden('cust_id', '100' ) !!} 
-
+      {!! Form::hidden('cust_id',  $id ) !!} 
       {!! Form::hidden('status', 'complete') !!}
-
 
 <!-- choose the order type -->
 <div class="row">
   <div class="input-field">
   <div class="col s6">
     {!! Form::select('orderType', array('delivery' => 'Delivery', 'take-away' => 'Take-away'), null) !!}
-
     {!! Form::label('Order Type')!!}
   </div>
 </div>
@@ -73,7 +71,6 @@
           <td></td>
           <td>Total Cost: </td>
           <td>var total price</td>
-         
         </tr>
       </tfoot>
       <tbody id="orderContent">
@@ -91,7 +88,6 @@
 </div>
 <div class="row">
   
-
   {!! Form::button('<span class="mdi-content-send right"></span> Submit',array('class' => 'btn waves-effect waves-light', 'onclick' => "$('#o_createForm').submit(); return false;", 'id' => 'formSubmit'))!!}
 </div>
 {!! Form::close() !!}

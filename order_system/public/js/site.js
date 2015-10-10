@@ -151,67 +151,31 @@ $('#current-order').on("click", ".plusItem", function(){
 });
 
 
-
+//Function to post form data from order.blade along with
+//items ordered to order.store controller
 $( '#o_createForm' ).on('submit', function(event) {
   
-  
-  
-  
+  //store all form elements in variables
   var a = document.getElementById("o_createForm").elements.namedItem("cust_id").value;
   var b = document.getElementById("o_createForm").elements.namedItem("status").value;
   var c = document.getElementById("o_createForm").elements.namedItem("orderType").value;
   var d = orderdata;
-  
-  
-  
-    var form = $(this);
-    var url = form.attr("action");
-    var formData = {'id':a, 'status':b, 'orderType':c, 'items':JSON.stringify(d) };
-    formData.serialize;
+  var form = $(this);
+  var url = form.attr("action");
+  //set object to post to hold order details
+  var formData = {'id':a, 'status':b, 'orderType':c, 'items':JSON.stringify(d) };
+  formData.serialize;
     
-    //$(form).find("input[name]").each(function (index, node) {
-      //  formData[node.name] = node.value;
-    //});
-    
-    
+    // post to controller
     $.post(url, formData).done(function (formdata) {
-        alert('success' + formdata);
+        alert('Order Created!' );
     }).fail(function(formdata){
       alert('fail' + formdata);
     });
   
+  //stop default form behaviour
   event.preventDefault();
   
-  
-  
-  
-  /*
-  var form = $(this);
-  var items = orderdata.serialize;
-  var c_id = $(this).attr('cust_id');
-  var o_type = $(this).attr('orderType');
-  var status = $(this).attr('status');
-
-  
-  
-  
-        $.ajax({
-            type: 'POST',
-            url: form.attr('action'),
-            data: {c_id : c_id, o_type : o_type, status : status, items : items}
-        }).done(function (data) {
-          
-            alert('succes');
-            // on success
-           
-        }).fail(function (data) {
-          alert('fail');
-            // on error
-
-        });
-        event.preventDefault();
-  
-*/
 return false;
 
  

@@ -50,25 +50,18 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
- 
-
         if (isset($_POST)) {
-            
-           // $o_items = $request->input('items');
-            
-            
                 $order = new Order;
                 $order->c_id = $request->input('id');
                 $order->type = $request->input('orderType');
                 //pass array with route of order items, serialise from that array ****************************************
                 $order->order_items = $request->input('items');
-                $order->status = serialize($request->input('status'));
+                $order->status = $request->input('status');
           
                 $order->save();
 
                 Session::flash('message', 'Order Created' );
-                return Redirect::to('orders'); //->withOitems($o_items);
+                return Redirect::to('orders'); 
         } else {
             Session::flash('message', 'Error!');
                 return Redirect::to('orders');
