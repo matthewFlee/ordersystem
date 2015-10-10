@@ -83,7 +83,11 @@ class CustomerController extends Controller
     public function show($id)
     {
       $customer = Customer::find($id);
-      return view('viewcustomer', ['customer' => $customer]);
+      $orders = DB::table('orders')
+      ->join('customers', 'orders.c_id', '=', 'customers.id')
+      ->select('orders.*', 'customers.name')
+      ->where('orders.c_id', '=', "$id")->get();
+      return view('viewcustomer', ['customer' => $customer, 'orders' => $orders]);
     }
 
     /**

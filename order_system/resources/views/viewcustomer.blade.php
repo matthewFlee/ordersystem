@@ -35,5 +35,23 @@
       <td>{{$customer->cardExpiry}}</td>
     </tr>
   </table>
+
+  <p>Customer's Orders</p>
+  <table class="bordered highlight responsive-table">
+    <thead>
+      <td>Order ID</td>
+      <td>Date Ordered</td>
+      <td>Order Total</td>
+    </thead>
+    <tbody>
+      @foreach ($orders as $order)
+      <tr>
+        <td>{{$order->id}}</td>
+        <td>{{date('Y-m-d h:i a', strtotime($order->created_at))}}</td>
+        <td><a href="/orders/{{$order->id}}">View Order</a></td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
 </div>
 @endsection
