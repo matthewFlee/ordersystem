@@ -27,15 +27,11 @@
       <td>{{$customer->cardHolder}}</td>
     </tr>
     <tr>
-      <td>Card Holder</td>
+      <td>Card Number</td>
       <td>{{$customer->cardNo}}</td>
     </tr>
     <tr>
-      <td>Card Holder</td>
-      <td>{{$customer->cardExpiry}}</td>
-    </tr>
-    <tr>
-      <td>Card Holder</td>
+      <td>Card Expiry</td>
       <td>{{$customer->cardExpiry}}</td>
     </tr>
   </table>
