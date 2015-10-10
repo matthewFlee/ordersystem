@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
 use OrderSystem\MenuItem;
+use Validator, Input, Redirect, Session, DB;
 
 class MenuController extends Controller
 {
+
+    //Validator rules
+    private $rules = array(
+      'item' => 'required',
+      'price' => 'required'
+    );
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +36,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-
+      return view ('menucreate');
     }
 
     /**
@@ -40,12 +47,16 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        $item = new Menu();
-        $item->item = $input['item'];
-        $item->price = floatval($input['price']);
-        $item->save();
-
+        $validator = Validator::make($request->all(), $this->rules);
+        if ($validator->passes()){
+          $item = new MenuItem;
+          $item->item = htmlspecialchars($request->input('item'));
+          $item->price = floatval($request->input('price'));
+          $item->save();
+          return Redirect::to('/menu');
+        } else {
+          return Redirect::action('MenuController@create')->withError($validator);
+        }
     }
 
     /**
@@ -67,7 +78,8 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+      $menuitem = MenuItem::find($id);
+      return view('menuedit', ['menuitem' => $menuitem]);
     }
 
     /**
@@ -79,7 +91,17 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+        if ($validator->passes()){
+          $item = MenuItem::find($id);
+          $item->item = htmlspecialchars($request->input('item'));
+          $item->price = htmlspecialchars($request->input('price'));
+          $item->save();
+
+          return Redirect::to('menu');
+         } else {
+           return Redirect::action('MenuController@edit')->withErrors($validator);
+         }
     }
 
     /**
@@ -92,7 +114,8 @@ class MenuController extends Controller
     {
         //Remove a menu item
         $item = MenuItem::find($id);
-        $post->delete();
+        $item->delete();
         //Redirect or somethign similar
+        return Redirect::to('/menu');
     }
 }
