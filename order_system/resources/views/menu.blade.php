@@ -19,7 +19,7 @@ Menu
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->item}}</td>
                 <td>${{$item->price}}</td>
-                <td><a href="/menu/{{$item->id}}/edit">Edit</a></td>
+                <td><a href="{{route('menu.edit', ['id' => $item->id])}}">Edit</a></td>
             </tr>
             @endforeach
         </tbody>

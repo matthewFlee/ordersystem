@@ -36,9 +36,9 @@ Customers
               {{ $customer->phoneMob}}
             </p>
             <p>
-              <a href="{{ url('customers', [$customer->id])}}">View customer</a>
+              <a href="{{route('customers.show', ['id' => $customer->id])}}">View customer</a>
             </p>
-            <a href="/customers/{{$customer->id}}/edit" class="secondary-content"><i class="material-icons">mode edit</i></a>
+            <a href="{{route('customers.edit', ['id' => $customer->id])}}" class="secondary-content"><i class="material-icons">mode edit</i></a>
           </li>
           @endforeach
           <!-- End item -->

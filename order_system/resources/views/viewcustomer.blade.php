@@ -48,7 +48,7 @@
       <tr>
         <td>{{$order->id}}</td>
         <td>{{date('Y-m-d h:i a', strtotime($order->created_at))}}</td>
-        <td><a href="/orders/{{$order->id}}">View Order</a></td>
+        <td><a href="{{route('orders.show', ['id' => $order->id])}}">View Order</a></td>
       </tr>
       @endforeach
     </tbody>

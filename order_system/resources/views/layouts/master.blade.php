@@ -24,13 +24,13 @@
         <!--Nav bar -->
             <nav>
                 <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Order System</a>
+                <a href="{{route('home')}}" class="brand-logo">Order System</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/customers">Customers</a></li>
-                    <li><a href="/orders">Orders</a></li>
-                    <li><a href="/menu">Menu</a></li>
-                    <li><a href="/admin">Admin</a></li>
+                    <li><a href="{{route('home')}}">Home</a></li>
+                    <li><a href="{{route('customers.index')}}">Customers</a></li>
+                    <li><a href="{{route('orders.index')}}">Orders</a></li>
+                    <li><a href="{{route('menu.index')}}">Menu</a></li>
+                    <li><a href="{{route('admin.index')}}">Admin</a></li>
                 </ul>
                 </div>
             </nav>
@@ -57,7 +57,7 @@
                                     <div class="">Type: {{ucfirst($sOrder->type)}}</div>
                                 </div>
                                 <div class="card-action">
-                                  <a href="/orders/{{$sOrder->id}}">View Order</a>
+                                  <a href="{{route('orders.show', ['id' => $sOrder->id])}}">View Order</a>
                                 </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="row">
                       <div class="col s12 m12 l12">
-                        <a href="/orders/all"  >
+                        <a href="{{route('orders.all')}}"  >
                         <div class="card">
                           <div class="card-content  green white-text">
                             <h4 class="center-align">View all orders</h4>
@@ -86,8 +86,8 @@
               <i class="large material-icons">add</i>
             </a>
             <ul>
-                <li><a class="btn-floating red" href="/menu/create"><i class="small material-icons">insert_chart</i></a></li>
-                <li><a class="btn-floating yellow darken-1" href="/customers/create"><i class="material-icons">perm_identity</i></a></li>
+                <li><a class="btn-floating red" href="{{route('menu.create')}}"><i class="small material-icons">insert_chart</i></a></li>
+                <li><a class="btn-floating yellow darken-1" href="{{route('customers.create')}}"><i class="material-icons">perm_identity</i></a></li>
                 <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
                 <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
             </ul>

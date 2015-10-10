@@ -27,7 +27,7 @@
             <label for="password">Password</label>
           </div>
         </div>
-        <div class="row">          
+        <div class="row">
           <div class="input-field col s12 m12 l12  login-text">
               <input type="checkbox" id="remember-me" />
               <label for="remember-me">Remember me</label>
@@ -35,7 +35,7 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
+            <a href="{{route('home')}}" class="btn waves-effect waves-light col s12">Login</a>
           </div>
         </div>
         <div class="row">

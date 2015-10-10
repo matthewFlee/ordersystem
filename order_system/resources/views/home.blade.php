@@ -8,7 +8,7 @@ Home
   <div class="row">
     <!-- Card 1 -->
     <div class="col s12 m6 l4">
-      <a href="orders"  >
+      <a href="{{route('orders.index')}}"  >
       <div class="card">
         <div class="card-content  green white-text">
           <h4 class="center-align">Start Order</h4>
@@ -18,7 +18,7 @@ Home
     </div>
     <!-- Card 2-->
     <div class="col s12 m6 l4">
-      <a href="customers">
+      <a href="{{route('customers.index')}}">
       <div class="card">
         <div class="card-content  blue white-text">
           <h4 class="center-align">Customers</h4>
@@ -28,7 +28,7 @@ Home
     </div>
     <!-- Card 3 -->
     <div class="col s12 m6 l4">
-      <a href="menu">
+      <a href="{{route('menu.index')}}">
       <div class="card">
         <div class="card-content  orange white-text">
           <h4 class="center-align">Menu</h4>
@@ -41,12 +41,11 @@ Home
 </div>
 
 <!-- New Order splash/modal -->
-  <div id="neworder" class="modal">
+  <!-- <div id="neworder" class="modal">
     <div class="modal-content">
       <h4>Create a new order</h4>
       <p><h5>What sort of order do you want to create?</h5></p>
       <div class="row">
-        <!-- Card 1 -->
         <div class="col s12 m6 l6">
           <a href="order/create"  class="modal-trigger">
           <div class="card">
@@ -56,7 +55,7 @@ Home
           </div>
           </a>
         </div>
-        <!-- Card 2-->
+
         <div class="col s12 m6 l6">
           <a href="order/create">
           <div class="card">
@@ -66,16 +65,15 @@ Home
           </div>
           </a>
         </div>
-        <!-- End Cards -->
       </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
 
     </div>
-  </div>
+  </div> -->
     <!-- New Order splash/modal -->
-  <div id="customers" class="modal">
+  <!-- <div id="customers" class="modal">
     {!! Form::open()!!}
     <div class="modal-content">
         <h4>Search for a customer</h4>
@@ -96,7 +94,7 @@ Home
     </div>
   </div>
     {!! Form::close() !!}
-  </div>
+  </div> -->
 
 
 @endsection
