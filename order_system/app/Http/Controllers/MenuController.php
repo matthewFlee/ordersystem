@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use OrderSystem\Http\Requests;
 use OrderSystem\Http\Controllers\Controller;
 use OrderSystem\MenuItem;
-use Validator, Input, Redirect, Session;
+use Validator, Input, Redirect, Session, DB;
 
 class MenuController extends Controller
 {
@@ -74,7 +74,9 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-      return view('menuedit', ['menuitem' => MenuItem::find($id)]);
+      $menuitem = MenuItem::find($id);
+      echo ($menuitem);
+      return view('menuedit', ['menuitem' => $menuitem]);
     }
 
     /**
@@ -89,14 +91,14 @@ class MenuController extends Controller
         $validator = Validator::make($request->all(), $this->rules);
         if ($validator->passes()){
           $item = MenuItem::find($id);
-          $item->item = htmlspecialchars($request->input('name'));
+          $item->item = htmlspecialchars($request->input('item'));
           $item->price = htmlspecialchars($request->input('price'));
           $item->save();
 
           return Redirect::to('menu');
-        } else {
-          return Redirect::action('MenuController@edit')->withErrors($validator);
-        }
+         } else {
+           return Redirect::action('MenuController@edit')->withErrors($validator);
+         }
     }
 
     /**

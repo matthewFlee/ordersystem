@@ -19,13 +19,13 @@
   <div class="row">
     <!-- Customer name-->
     <div class="input-field col s6">
-      <input id="name" name="name" type="text" class="validate" value="{{ $menuitem->item or ''}}">
-      <label for="name">Item</label>
+      <input id="item" name="item" type="text" class="validate" value="{{ $menuitem->item or ''}}">
+      <label for="item">Item</label>
     </div>
     <!-- Customer Mobile Phone-->
     <div class="input-field col s6">
-      <input name="phoneMob" id="phoneMob" type="text" class="validate" value="{{$menuitem->price or ''}}">
-      <label for="phoneMob">Price</label>
+      <input name="price" id="price" type="text" class="validate" value="{{$menuitem->price or ''}}">
+      <label for="price">Price</label>
     </div>
   </div>
   <hr />
