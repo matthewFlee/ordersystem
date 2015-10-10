@@ -57,7 +57,7 @@
                                     <div class="">Type: {{ucfirst($sOrder->type)}}</div>
                                 </div>
                                 <div class="card-action">
-                                  <a href="/order/{{$sOrder->id}}">View Order</a>
+                                  <a href="/orders/{{$sOrder->id}}">View Order</a>
                                 </div>
                                 </div>
                             </div>
