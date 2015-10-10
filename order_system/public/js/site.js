@@ -153,12 +153,25 @@ $('#current-order').on("click", ".plusItem", function(){
 
 
 $( '#o_createForm' ).on('submit', function(event) {
+  
+  
+  
+  
+  var a = document.getElementById("o_createForm").elements.namedItem("cust_id").value;
+  var b = document.getElementById("o_createForm").elements.namedItem("status").value;
+  var c = document.getElementById("o_createForm").elements.namedItem("orderType").value;
+  var d = orderdata;
+  
+  
+  
     var form = $(this);
     var url = form.attr("action");
-    var formData = {};
-    $(form).find("input[name]").each(function (index, node) {
-        formData[node.name] = node.value;
-    });
+    var formData = {'id':a, 'status':b, 'orderType':c, 'items':JSON.stringify(d) };
+    formData.serialize;
+    
+    //$(form).find("input[name]").each(function (index, node) {
+      //  formData[node.name] = node.value;
+    //});
     
     
     $.post(url, formData).done(function (formdata) {

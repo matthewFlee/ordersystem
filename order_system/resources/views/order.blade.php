@@ -6,14 +6,7 @@
 @if(Session::has('message'))
     <div class="card-panel orange">
        <h3><i class="large material-icons">error</i>{{ Session::get('message') }}</h3>
-   @if(isset($oitems))
-    @foreach ($oitems as $it)
-    <h6>{{ $it->id }}</h6>
-    @endforeach
-    
-    @else
-    <h3>NOT SET</h3>
-    @endif
+  
     </div>
 @endif
 

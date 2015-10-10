@@ -59,11 +59,11 @@ class OrderController extends Controller
             
             
                 $order = new Order;
-                $order->c_id = $request->input('cust_id');
-                $order->type = 'test';//$request->input('orderType');
+                $order->c_id = $request->input('id');
+                $order->type = $request->input('orderType');
                 //pass array with route of order items, serialise from that array ****************************************
-                $order->order_items = 'test' ;//$items;
-                $order->status = $request->input('status');
+                $order->order_items = $request->input('items');
+                $order->status = serialize($request->input('status'));
           
                 $order->save();
 
