@@ -28,6 +28,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/">Home</a></li>
                     <li><a href="/customers">Customers</a></li>
+                    <li><a href="/orders">Orders</a></li>
                     <li><a href="/menu">Menu</a></li>
                     <li><a href="/admin">Admin</a></li>
                 </ul>
@@ -56,12 +57,23 @@
                                     <div class="">Type: {{ucfirst($sOrder->type)}}</div>
                                 </div>
                                 <div class="card-action">
-                                  <a href="/order/{{$sOrder->id}}">View Order</a>
+                                  <a href="/orders/{{$sOrder->id}}">View Order</a>
                                 </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
+                    </div>
+                    <div class="row">
+                      <div class="col s12 m12 l12">
+                        <a href="/orders/all"  >
+                        <div class="card">
+                          <div class="card-content  green white-text">
+                            <h4 class="center-align">View all orders</h4>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
                     </div>
                     @show
                 </div>

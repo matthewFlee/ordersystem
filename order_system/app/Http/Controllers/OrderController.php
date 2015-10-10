@@ -9,7 +9,7 @@ use OrderSystem\Http\Controllers\Controller;
 use OrderSystem\Order;
 use OrderSystem\MenuItem;
 use Illuminate\Database\Query\Builder;
-use Validator, Input, Redirect, Session;
+use Validator, Input, Redirect, Session, DB;
 
 class OrderController extends Controller
 {
@@ -58,12 +58,12 @@ class OrderController extends Controller
                 //pass array with route of order items, serialise from that array ****************************************
                 $order->order_items = $request->input('items');
                 $order->status = $request->input('status');
-          
+
                 $order->save();
 
                Session::flash('message', 'Order Created' );
                 //return Redirect::to('customers'); //->with('message', 'Order Created');
-                return Redirect::to('orders'); 
+                return Redirect::to('orders');
         } else {
             Session::flash('message', 'Error!');
                 return Redirect::to('orders');
@@ -79,10 +79,25 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::find($id);
-        $order_items = unserialize($order->order_items);
-        return Redirect::to(URL::previous())->withOrder($order)->withItems($order_items);
+        // $order = Order::find($id);
+        // $order_items = unserialize($order->order_items);
+        // return Redirect::to(URL::previous())->withOrder($order)->withItems($order_items);
 
+        // $orders = DB::table('orders')
+        // ->join('customers', 'orders.c_id', '=', 'customers.id')
+        // ->select('orders.*', 'customers.name', 'customers.id')
+        // ->get();
+        $order = DB::table('orders')
+        ->join('customers', 'orders.c_id', '=', 'customers.id')
+        ->select('orders.*', 'customers.name')
+        ->where('orders.id', '=', "$id")->get();
+        $order_items = json_decode($order[0]->order_items);
+        $order_sum = 0;
+        foreach($order_items as $key=>$value){
+          if(isset($value->price))
+          $order_sum += $value->price;
+        }
+        return view('singleorder', ['order' => $order[0], 'order_items' => $order_items, 'order_sum' => $order_sum]);
     }
 
     /**
@@ -119,5 +134,14 @@ class OrderController extends Controller
 		$order->delete();
 		Session::flash('message', 'Order Deleted!');
 		return Redirect::to(URL::previous());
+    }
+
+    //Route for showing all orders on a page
+    public function all(){
+      // $orders = DB::table('orders')
+      // ->join('customers', 'orders.c_id', '=', 'customers.id')
+      // ->select('orders.*', 'customers.name', 'customers.id')
+      // ->get();
+      return view('ordersall');
     }
 }
