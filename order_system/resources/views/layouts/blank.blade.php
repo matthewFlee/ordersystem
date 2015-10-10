@@ -22,20 +22,20 @@
         <title>@yield('title') - Order System</title>
     </head>
     <body>
-        <div class='container'>
+      <div class='container'>
         <!--Nav bar -->
-            <nav>
-                <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Order System</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/customers">Customers</a></li>
-                  <li><a href="/orders">Orders</a></li>
-                  <li><a href="/menu">Menu</a></li>
-                  <li><a href="/admin">Admin</a></li>
-                </ul>
-                </div>
-            </nav>
+        <nav>
+          <div class="nav-wrapper">
+            <a href="{{route('home')}}" class="brand-logo">Order System</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="{{route('home')}}">Home</a></li>
+              <li><a href="{{route('customers.index')}}">Customers</a></li>
+              <li><a href="{{route('orders.index')}}">Orders</a></li>
+              <li><a href="{{route('menu.index')}}">Menu</a></li>
+              <li><a href="{{route('admin.index')}}">Admin</a></li>
+            </ul>
+          </div>
+        </nav>
         <!-- Main content -->
         @section('main')
         @show

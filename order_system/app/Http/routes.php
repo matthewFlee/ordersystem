@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'home',  function () {
     return view('home');
-});
+}]);
 
 //All orders route
 Route::get('orders/all', array('as' => 'orders.all', 'uses' => 'OrderController@all'));

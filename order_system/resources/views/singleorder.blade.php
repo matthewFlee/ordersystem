@@ -3,7 +3,7 @@
 @section('main')
 <div class="container">
   <div class="row">
-    <h1>All Orders</h1>
+    <h1>{{$order->name}}'s Order</h1>
   </div>
 <!-- Order Cards -->
 <div class="row">
@@ -39,7 +39,7 @@
             </table>
         </div>
         <div class="card-action">
-          <a href="/customers/{{$order->c_id}}">View Customer</a>
+          <a href="{{route('customers.show', ['id' => $order->c_id])}}">View Customer</a>
         </div>
         </div>
     </div>

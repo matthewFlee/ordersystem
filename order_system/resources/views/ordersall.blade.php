@@ -17,8 +17,8 @@
             <div class="">Type: {{ucfirst($sOrder->type)}}</div>
         </div>
         <div class="card-action">
-          <a href="/customers/{{$sOrder->c_id}}">View Customer</a>
-          <a href="/orders/{{$sOrder->c_id}}">View Order</a>
+          <a href="{{route('customers.show', ['id' => $sOrder->c_id])}}">View Customer</a>
+          <a href="{{route('orders.show', ['id' => $sOrder->id])}}">View Order</a>
         </div>
         </div>
     </div>
