@@ -26,8 +26,8 @@
 
         </div>
       @else
-        {!! Form::text('phone', "#search_query")!!}
-        {!! Form::label('phone', 'Search customers') !!}
+        {!! Form::text('phone', "")!!}
+        {!! Form::label('phone', 'Search customers via phone number') !!}
       @endif
     </div>
 
@@ -70,7 +70,7 @@
         <tr>
           <td></td>
           <td>Total Cost: </td>
-          <td>var total price</td>
+          <td id="totalPrice">0</td>
         </tr>
       </tfoot>
       <tbody id="orderContent">
