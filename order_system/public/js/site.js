@@ -14,26 +14,6 @@ $('select').material_select();
 $('.scrollspy').scrollSpy();
 //Stop materializecss functions
 
-/*Currently not in use
-var searchList = $("\
-<li>Hello</li>\
-");
-$('#searchQuery').keyup(function(){
-  var q = $(this).val();
-  //remove whitespace in query
-  q = q.replace(/\s/g,'');
-  var data = {"query": q, };
-  if (q.length == 0 || q == " ") {
-    return false;
-  }
-  var url = "customer/search";
-  //POST token
-  $.post(url, data, function(res){
-    console.log(res);
-  });
-});
-*/
-
 //Items currently on order
 var orderdata = [];
 //Running order total
@@ -48,15 +28,7 @@ $('.additem').click(function(){
   var $quantity = 1;
   //Bool value is for later checking, this avoids duplicate
   var updated = false;
-  //loops through the current order and checks for an item with same ID
-  //If found it will update if not it will continue through to next if.
-  // for (var i = 0; i < orderdata.length; i++) {
-  //   if ($id == orderdata[i].id){
-  //     orderdata[i].quantity += 1;
-  //     //sets bool for if order has been updated as apposed to new
-  //     updated = true;
-  //   }
-  // }
+
   updated = addQuantity($id);
   //If the order has not been updated and new it will add the object to the array
   if (!updated){
@@ -67,7 +39,22 @@ $('.additem').click(function(){
   updated = false;
   //Draw the current order table (function below)
   drawTable(orderdata);
+  // updateTotalPrice();
 });
+
+//Calculate current order total
+//total order value = var orderTotal;
+function updateTotalPrice() {
+  var total = 0;
+  $('.itemAmt').each(function(){
+    var price = $(this);
+    total += parseFloat(price.text());
+    orderTotal = total;
+    console.log(orderTotal)
+  });
+  $('#totalPrice').html(orderTotal);
+};
+
 
 //Take item id and add quanity by one increment
 function addQuantity(id){
@@ -93,9 +80,7 @@ function minusQuanity(id){
   };
 };
 
-function updateTotalPrice() {
 
-};
 
 //draws the order table !!not in use currently
 function drawTable(data) {
@@ -104,6 +89,7 @@ function drawTable(data) {
   for (var i = 0; i < data.length; i++) {
     //draw each row based on json data
     drawOrderRow(data[i]);
+    updateTotalPrice();
   };
 };
 
@@ -119,7 +105,7 @@ function drawOrderRow(rowData) {
   row.append($("<td class='itemAmt'>" + (rowData.price * rowData.quantity) + " </td>"));
   row.append($("<td><a href='#' class='deleteItem'> <i class='material-icons'>delete</i></a></td>"));
 };
-//<a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
+
 //Delete menu item from list
 $('.deleteItem').click(function(){
   alert('Are you sure you want to remove this item?');
