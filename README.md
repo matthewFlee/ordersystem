@@ -1,4 +1,15 @@
 #Order System
+This Order System was developed for my Software Engineering class at Griffith. 
+The System was Developed by Matthew Lee and Myself (Adam Pyle)
+It was built using the Laravel PHP framework and incoporates the following resources:
+* [Laravel 5.1](http://laravel.com/docs/5.1)
+* [Jquery 2.1.1](https://jquery.com/download/)
+* [Materialize CSS](http://materializecss.com/)
+
+Design documents for the project can be provided on request.
+
+Below is the Readme for when the project was in production
+___
 #2509ICT - Software Engineering
 
 This is the repo for the Order System for Software engineering.
@@ -7,7 +18,7 @@ It will be developed on the Laravel platform
 The project will use the bug/feature tracker implemented into bitbucket. All
 features/function points will be added to the tracker so that commits can be linked.
 
-**Live version with master can be found here:** http://ec2-52-64-19-177.ap-southeast-2.compute.amazonaws.com/ OR http://order.getset.tech/
+**Live version with master can be found here:** OR http://order.getset.tech/
 
 #WORKSPACE SETUP
 After cloning this repo to your workspace of choice there is a script I've made which will setup the basic tools.
